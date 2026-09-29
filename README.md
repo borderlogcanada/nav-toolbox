@@ -29,7 +29,7 @@ The desktop app works locally without an account or Nav Toolbox server. Fonts ar
 
 ## Install status and Linux compatibility
 
-Cloning this repository or running the browser preview does **not** install Nav Toolbox. The first native RPM, Deb, and AppImage builds succeeded on Ubuntu 22.04 in [GitHub Actions](https://github.com/borderlogcanada/nav-toolbox/actions/runs/36602501921). Download the `nav-toolbox-linux-packages` artifact from that run and extract it (GitHub sign-in required). These initial x86_64 packages still need interactive testing on the target desktop; a successful build does not verify tray, shortcut, or terminal behavior.
+Cloning this repository or running the browser preview does **not** install Nav Toolbox. The native RPM, Deb, and AppImage builds with all 339 commands succeeded on Ubuntu 22.04 in [GitHub Actions](https://github.com/borderlogcanada/nav-toolbox/actions/runs/36616858018). Download the `nav-toolbox-linux-packages` artifact from that run and extract it (GitHub sign-in required). These initial x86_64 packages still need interactive testing on the target desktop; a successful build does not verify tray, shortcut, or terminal behavior.
 
 From the extracted artifact directory, choose the command for your system:
 
@@ -121,7 +121,7 @@ src-tauri/icons/             app icon assets
 
 ## Verification status
 
-The frontend build, formatting, catalog validation, dependency audit, and Rust compile check passed in [CI](https://github.com/borderlogcanada/nav-toolbox/actions/runs/36602453502). The [Linux package build](https://github.com/borderlogcanada/nav-toolbox/actions/runs/36602501921) also succeeded and generated RPM, Deb, and AppImage packages. Interactive native testing on Fedora and other desktops remains outstanding. Screenshots in [`docs/screenshots/`](docs/screenshots/) show the browser preview.
+The frontend build, formatting, catalog validation, dependency audit, and Rust compile check passed in [CI](https://github.com/borderlogcanada/nav-toolbox/actions/runs/36616833183). The [Linux package build](https://github.com/borderlogcanada/nav-toolbox/actions/runs/36616858018) also succeeded and generated RPM, Deb, and AppImage packages. Interactive native testing on Fedora and other desktops remains outstanding. Screenshots in [`docs/screenshots/`](docs/screenshots/) show the browser preview.
 
 Nav Toolbox uses the [MIT license](LICENSE). See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
 
