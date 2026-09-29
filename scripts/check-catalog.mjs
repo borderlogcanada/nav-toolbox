@@ -4,8 +4,13 @@ const seed = JSON.parse(fs.readFileSync("src/data/seed.json", "utf8"));
 const expansion = JSON.parse(
   fs.readFileSync("src/data/catalog-v2.json", "utf8"),
 );
-const categories = [...seed.categories, ...expansion.categories];
-const commands = [...seed.commands, ...expansion.commands];
+const basics = JSON.parse(fs.readFileSync("src/data/catalog-v3.json", "utf8"));
+const categories = [
+  ...seed.categories,
+  ...expansion.categories,
+  ...basics.categories,
+];
+const commands = [...seed.commands, ...expansion.commands, ...basics.commands];
 const unique = (values, label) => {
   const seen = new Set();
   for (const value of values) {
@@ -34,7 +39,7 @@ for (const command of commands) {
   if (command.command.length > 4096)
     throw new Error(`Command too long: ${command.id}`);
 }
-for (const command of expansion.commands) {
+for (const command of [...expansion.commands, ...basics.commands]) {
   if (command.isEnabled !== false)
     throw new Error(`New catalog item must start disabled: ${command.id}`);
 }

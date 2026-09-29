@@ -2,6 +2,7 @@ import { invoke } from "@tauri-apps/api/core";
 import { isTauri } from "@tauri-apps/api/core";
 import seed from "../data/seed.json";
 import expansion from "../data/catalog-v2.json";
+import basics from "../data/catalog-v3.json";
 import {
   defaultSettings,
   type Category,
@@ -11,13 +12,15 @@ import {
 } from "../types";
 
 const key = "nav-toolbox-preview-v1";
+const catalogVersion = 3;
+const packs = [expansion, basics];
 const catalogVersionKey = "nav-toolbox-preview-catalog-version";
 const catalog: {
   categories: Category[];
   commands: (Partial<Command> & Pick<Command, "id">)[];
 } = {
-  categories: [...seed.categories, ...expansion.categories],
-  commands: [...seed.commands, ...expansion.commands],
+  categories: [...seed.categories, ...packs.flatMap((pack) => pack.categories)],
+  commands: [...seed.commands, ...packs.flatMap((pack) => pack.commands)],
 };
 const initial = (): Snapshot => ({
   categories: catalog.categories,
@@ -33,13 +36,18 @@ function readPreview(): Snapshot {
   try {
     const value = localStorage.getItem(key);
     if (!value) {
-      localStorage.setItem(catalogVersionKey, "2");
+      localStorage.setItem(catalogVersionKey, String(catalogVersion));
       return initial();
     }
     const data = JSON.parse(value) as Snapshot;
-    if (localStorage.getItem(catalogVersionKey) !== "2") {
+    const previousVersion = Number(
+      localStorage.getItem(catalogVersionKey) ?? 1,
+    );
+    if (previousVersion < catalogVersion) {
       const known = new Set(data.commands.map((c) => c.id));
-      for (const item of expansion.commands)
+      for (const item of packs
+        .filter((pack) => pack.version > previousVersion)
+        .flatMap((pack) => pack.commands))
         if (!known.has(item.id))
           data.commands.push({
             ...item,
@@ -47,11 +55,13 @@ function readPreview(): Snapshot {
             runCount: 0,
             lastUsedAt: null,
           } as Command);
-      for (const category of expansion.categories)
+      for (const category of packs
+        .filter((pack) => pack.version > previousVersion)
+        .flatMap((pack) => pack.categories))
         if (!data.categories.some((c) => c.id === category.id))
           data.categories.push(category);
       localStorage.setItem(key, JSON.stringify(data));
-      localStorage.setItem(catalogVersionKey, "2");
+      localStorage.setItem(catalogVersionKey, String(catalogVersion));
     }
     data.commands = data.commands.map((c) => ({
       ...c,
@@ -64,7 +74,7 @@ function readPreview(): Snapshot {
 }
 function writePreview(data: Snapshot) {
   localStorage.setItem(key, JSON.stringify(data));
-  localStorage.setItem(catalogVersionKey, "2");
+  localStorage.setItem(catalogVersionKey, String(catalogVersion));
 }
 export const native = isTauri();
 export async function loadSnapshot(): Promise<Snapshot> {

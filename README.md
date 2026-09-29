@@ -17,13 +17,13 @@ Nav Toolbox is a Linux desktop command library with a compact launcher and a ful
 
 - Tauri v2 desktop windows, tray menu, and configurable global shortcut (default `Ctrl+Space`)
 - SQLite storage, fuzzy search, favorites, recent commands, categories, and JSON backup
-- 163 bundled commands across 26 categories, with individual and category visibility controls
+- 339 bundled commands across 35 categories, with individual and category visibility controls
 - Clipboard copy as the primary action; optional terminal Run, disabled by default
 - Light, dark, and system themes; optional autostart and close after copy
 - Full manager with category sidebar, command list, details, editing, and settings
 - Keyboard: `Ctrl+K` focuses search, arrows select, `Enter` copies, `I` opens details, `Alt+1`–`Alt+7` copy launcher rows, and `Esc` closes overlays
 
-The first 24 commands appear by default. The other 139 start hidden. Open **Command Library** in the manager to enable individual commands or whole categories for your system. Commands containing `<placeholder>` must be edited before Run.
+The first 24 commands appear by default. The other 315 start hidden. Open **Command Library** in the manager to enable individual commands or whole categories for your system. Commands containing `<placeholder>` must be edited before Run.
 
 The desktop app works locally without an account or Nav Toolbox server. Fonts are bundled. The browser preview stores data in browser local storage; the desktop app uses SQLite.
 
@@ -88,6 +88,7 @@ Open `http://127.0.0.1:1420/` in the phone's browser while that SSH session stay
 
 ```bash
 npm run check:catalog
+npm run check:migrations
 npm run format:check
 npm run build
 npm run desktop:build
@@ -111,7 +112,8 @@ src/styles.css               light and dark themes
 src/lib/data.ts              native and browser data adapter
 src/lib/native.ts            clipboard, shortcuts, autostart, dialogs
 src/data/seed.json           initial visible commands
-src/data/catalog-v2.json     optional command packs
+src/data/catalog-v2.json     optional developer command packs
+src/data/catalog-v3.json     everyday Linux basics
 src-tauri/src/db.rs          SQLite schema and persistence
 src-tauri/src/lib.rs         tray, windows, native actions
 src-tauri/icons/             app icon assets
@@ -122,3 +124,7 @@ src-tauri/icons/             app icon assets
 The frontend build, formatting, catalog validation, dependency audit, and Rust compile check passed in [CI](https://github.com/borderlogcanada/nav-toolbox/actions/runs/36602453502). The [Linux package build](https://github.com/borderlogcanada/nav-toolbox/actions/runs/36602501921) also succeeded and generated RPM, Deb, and AppImage packages. Interactive native testing on Fedora and other desktops remains outstanding. Screenshots in [`docs/screenshots/`](docs/screenshots/) show the browser preview.
 
 Nav Toolbox uses the [MIT license](LICENSE). See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+
+## Everyday Linux coverage
+
+The Linux basics pack adds 176 commands: files and navigation, reading and processing text, searching, archives, permissions, users and groups, system information, editors and help, shell variables and jobs, plus more networking, SSH, service, and package commands. See [catalog coverage and sources](docs/CATALOG.md). Commands tagged `current-shell`, such as `cd`, `export`, and `alias`, are copy-only so they affect the terminal where you paste them.

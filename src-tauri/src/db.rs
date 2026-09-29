@@ -92,8 +92,9 @@ fn connect(app: &tauri::AppHandle) -> Result<Connection, String> {
     }
     let current_version: Option<i64> = db.query_row("SELECT value FROM settings WHERE key='catalog_version'", [], |r| r.get::<_, String>(0))
         .optional().map_err(|e| e.to_string())?.and_then(|value| value.parse().ok());
-    if current_version.unwrap_or(1) < 2 {
-        let expansion: serde_json::Value = serde_json::from_str(include_str!("../../src/data/catalog-v2.json")).map_err(|e| e.to_string())?;
+    for (version, source) in [(2, include_str!("../../src/data/catalog-v2.json")), (3, include_str!("../../src/data/catalog-v3.json"))] {
+        if current_version.unwrap_or(1) >= version { continue; }
+        let expansion: serde_json::Value = serde_json::from_str(source).map_err(|e| e.to_string())?;
         let categories: Vec<Category> = serde_json::from_value(expansion["categories"].clone()).map_err(|e| e.to_string())?;
         let commands: Vec<Command> = serde_json::from_value(expansion["commands"].clone()).map_err(|e| e.to_string())?;
         let order: i64 = db.query_row("SELECT COALESCE(MAX(sort_order),0) FROM categories", [], |r| r.get(0)).map_err(|e| e.to_string())?;
@@ -101,7 +102,7 @@ fn connect(app: &tauri::AppHandle) -> Result<Connection, String> {
         let seed_result = (|| {
             for (index, category) in categories.iter().enumerate() { insert_category_if_missing(&db, category, order + index as i64 + 1)?; }
             for command in &commands { insert_command_if_missing(&db, command)?; }
-            db.execute("INSERT INTO settings(key,value) VALUES ('catalog_version','2') ON CONFLICT(key) DO UPDATE SET value='2'", []).map_err(|e| e.to_string())?;
+            db.execute("INSERT INTO settings(key,value) VALUES ('catalog_version',?1) ON CONFLICT(key) DO UPDATE SET value=excluded.value", [version.to_string()]).map_err(|e| e.to_string())?;
             Ok::<(), String>(())
         })();
         if let Err(error) = seed_result { let _ = db.execute_batch("ROLLBACK"); return Err(error); }

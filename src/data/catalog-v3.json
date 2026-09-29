@@ -1,0 +1,2892 @@
+{
+  "version": 3,
+  "categories": [
+    {
+      "id": "files",
+      "name": "Files & Navigation",
+      "icon": "file-text",
+      "color": "#547be8"
+    },
+    {
+      "id": "text",
+      "name": "Read & Process Text",
+      "icon": "file-text",
+      "color": "#547be8"
+    },
+    {
+      "id": "search",
+      "name": "Find Files & Text",
+      "icon": "search",
+      "color": "#547be8"
+    },
+    {
+      "id": "archives",
+      "name": "Archives & Compression",
+      "icon": "box",
+      "color": "#547be8"
+    },
+    {
+      "id": "permissions",
+      "name": "Permissions",
+      "icon": "shield",
+      "color": "#547be8"
+    },
+    {
+      "id": "users",
+      "name": "Users & Groups",
+      "icon": "house",
+      "color": "#547be8"
+    },
+    {
+      "id": "system-info",
+      "name": "System Information",
+      "icon": "server",
+      "color": "#547be8"
+    },
+    {
+      "id": "editors",
+      "name": "Editors & Help",
+      "icon": "file-text",
+      "color": "#547be8"
+    },
+    {
+      "id": "alpine",
+      "name": "Alpine Linux",
+      "icon": "server",
+      "color": "#547be8"
+    }
+  ],
+  "commands": [
+    {
+      "id": "linux-basics-files-01",
+      "title": "ls -lah",
+      "command": "ls -lah",
+      "descriptionShort": "List files, including hidden files",
+      "descriptionLong": "Shows permissions, owners, sizes, and timestamps for the current directory.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-02",
+      "title": "ls -lt",
+      "command": "ls -lt",
+      "descriptionShort": "List newest files first",
+      "descriptionLong": "Sorts entries by modification time; hidden files are omitted.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-03",
+      "title": "ls -lS",
+      "command": "ls -lS",
+      "descriptionShort": "List largest files first",
+      "descriptionLong": "Sorts by file size; directory entry sizes do not measure their contents.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-04",
+      "title": "cd \"<directory>\"",
+      "command": "cd \"<directory>\"",
+      "descriptionShort": "Change directory",
+      "descriptionLong": "Paste into the terminal where you want to change the working directory.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-05",
+      "title": "cd ..",
+      "command": "cd ..",
+      "descriptionShort": "Go to the parent directory",
+      "descriptionLong": "Changes the current terminal's directory one level up.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-06",
+      "title": "cd ~",
+      "command": "cd ~",
+      "descriptionShort": "Go to your home directory",
+      "descriptionLong": "Changes the current terminal's working directory to your home.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-07",
+      "title": "cd -",
+      "command": "cd -",
+      "descriptionShort": "Return to the previous directory",
+      "descriptionLong": "Uses the previous working directory recorded by your current shell.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-08",
+      "title": "touch -- \"<file>\"",
+      "command": "touch -- \"<file>\"",
+      "descriptionShort": "Create a file or update its timestamp",
+      "descriptionLong": "Creates an empty file if absent; an existing file's contents are preserved.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-09",
+      "title": "mkdir -p -- \"<directory>\"",
+      "command": "mkdir -p -- \"<directory>\"",
+      "descriptionShort": "Create directories and missing parents",
+      "descriptionLong": "Creates the requested directory tree without failing on existing directories.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-10",
+      "title": "cp -i -- \"<source>\" \"<destination>\"",
+      "command": "cp -i -- \"<source>\" \"<destination>\"",
+      "descriptionShort": "Copy a file with overwrite confirmation",
+      "descriptionLong": "Prompts before replacing an existing destination file.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-11",
+      "title": "cp -a -i -- \"<source-directory>\" \"<destination>\"",
+      "command": "cp -a -i -- \"<source-directory>\" \"<destination>\"",
+      "descriptionShort": "Copy a directory and preserve metadata",
+      "descriptionLong": "Copies recursively while preserving attributes where possible; prompts before overwriting.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-12",
+      "title": "mv -i -- \"<source>\" \"<destination>\"",
+      "command": "mv -i -- \"<source>\" \"<destination>\"",
+      "descriptionShort": "Move or rename with confirmation",
+      "descriptionLong": "Moves the source and prompts if the destination would be overwritten.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-13",
+      "title": "rm -i -- \"<file>\"",
+      "command": "rm -i -- \"<file>\"",
+      "descriptionShort": "Delete one file with confirmation",
+      "descriptionLong": "Permanently removes the named file after a prompt; this does not use the desktop trash.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-14",
+      "title": "rm -rI -- \"<directory>\"",
+      "command": "rm -rI -- \"<directory>\"",
+      "descriptionShort": "Delete a directory with a confirmation prompt",
+      "descriptionLong": "GNU rm asks once before recursive removal. Review the entire path; deletion is permanent.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-15",
+      "title": "rmdir -- \"<directory>\"",
+      "command": "rmdir -- \"<directory>\"",
+      "descriptionShort": "Remove an empty directory",
+      "descriptionLong": "Fails if the directory still contains entries.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-16",
+      "title": "ln -s -- \"<target>\" \"<link>\"",
+      "command": "ln -s -- \"<target>\" \"<link>\"",
+      "descriptionShort": "Create a symbolic link",
+      "descriptionLong": "Creates a link pointing to the target. Relative targets are resolved from the link's directory.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-17",
+      "title": "readlink -f -- \"<path>\"",
+      "command": "readlink -f -- \"<path>\"",
+      "descriptionShort": "Resolve a path and symbolic links",
+      "descriptionLong": "Prints the canonical path using GNU readlink.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-18",
+      "title": "stat -- \"<path>\"",
+      "command": "stat -- \"<path>\"",
+      "descriptionShort": "Inspect file metadata",
+      "descriptionLong": "Displays size, ownership, permissions, and filesystem timestamps.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-files-19",
+      "title": "file -- \"<path>\"",
+      "command": "file -- \"<path>\"",
+      "descriptionShort": "Identify a file's format",
+      "descriptionLong": "Examines file contents to report the likely type; the file utility may need installation.",
+      "categoryId": "files",
+      "tags": [
+        "files",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-01",
+      "title": "cat -- \"<file>\"",
+      "command": "cat -- \"<file>\"",
+      "descriptionShort": "Print a text file",
+      "descriptionLong": "Writes the file to the terminal; use less for large files.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-02",
+      "title": "cat -n -- \"<file>\"",
+      "command": "cat -n -- \"<file>\"",
+      "descriptionShort": "Print a file with line numbers",
+      "descriptionLong": "Numbers every output line.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-03",
+      "title": "less -- \"<file>\"",
+      "command": "less -- \"<file>\"",
+      "descriptionShort": "Read a file page by page",
+      "descriptionLong": "Use / to search, n for the next match, and q to quit.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-04",
+      "title": "head -n 20 -- \"<file>\"",
+      "command": "head -n 20 -- \"<file>\"",
+      "descriptionShort": "Read the first 20 lines",
+      "descriptionLong": "Displays the start of a text file without loading an editor.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-05",
+      "title": "tail -n 50 -- \"<file>\"",
+      "command": "tail -n 50 -- \"<file>\"",
+      "descriptionShort": "Read the last 50 lines",
+      "descriptionLong": "Useful for inspecting recent entries in a log file.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-06",
+      "title": "tail -F -- \"<file>\"",
+      "command": "tail -F -- \"<file>\"",
+      "descriptionShort": "Follow a log across rotation",
+      "descriptionLong": "Waits for new lines and retries when the file is replaced; Ctrl+C stops following.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-07",
+      "title": "wc -l -- \"<file>\"",
+      "command": "wc -l -- \"<file>\"",
+      "descriptionShort": "Count lines in a file",
+      "descriptionLong": "Counts newline characters; a final line without a newline is not counted.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-08",
+      "title": "wc -w -- \"<file>\"",
+      "command": "wc -w -- \"<file>\"",
+      "descriptionShort": "Count words in a file",
+      "descriptionLong": "Reports the number of whitespace-separated words.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-09",
+      "title": "sort -- \"<file>\"",
+      "command": "sort -- \"<file>\"",
+      "descriptionShort": "Sort text lines",
+      "descriptionLong": "Prints sorted output without changing the input file.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-10",
+      "title": "sort -n -- \"<file>\"",
+      "command": "sort -n -- \"<file>\"",
+      "descriptionShort": "Sort numbers numerically",
+      "descriptionLong": "Orders lines by their numeric value rather than alphabetically.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-11",
+      "title": "sort -u -- \"<file>\"",
+      "command": "sort -u -- \"<file>\"",
+      "descriptionShort": "Sort and remove duplicate lines",
+      "descriptionLong": "Prints one copy of each distinct line.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-12",
+      "title": "sort -- \"<file>\" | uniq -c",
+      "command": "sort -- \"<file>\" | uniq -c",
+      "descriptionShort": "Count repeated lines",
+      "descriptionLong": "Groups equal lines, then prints their occurrence counts.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-13",
+      "title": "cut -d ',' -f 1 -- \"<file>\"",
+      "command": "cut -d ',' -f 1 -- \"<file>\"",
+      "descriptionShort": "Extract the first comma-separated field",
+      "descriptionLong": "Splits on literal commas; this is not a full CSV parser for quoted fields.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-14",
+      "title": "awk '{print $1}' \"<file>\"",
+      "command": "awk '{print $1}' \"<file>\"",
+      "descriptionShort": "Print the first whitespace-separated field",
+      "descriptionLong": "Reads each line and prints its first field without modifying the file.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-15",
+      "title": "sed 's/<old>/<new>/g' \"<file>\"",
+      "command": "sed 's/<old>/<new>/g' \"<file>\"",
+      "descriptionShort": "Preview text replacement",
+      "descriptionLong": "Prints transformed text without modifying the file. Escape regex and replacement characters when needed.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-16",
+      "title": "sed -i.bak 's/<old>/<new>/g' \"<file>\"",
+      "command": "sed -i.bak 's/<old>/<new>/g' \"<file>\"",
+      "descriptionShort": "Replace text while keeping a backup",
+      "descriptionLong": "GNU sed edits the file and keeps its previous contents in a .bak file. An existing backup may be replaced.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-17",
+      "title": "diff -u -- \"<first-file>\" \"<second-file>\"",
+      "command": "diff -u -- \"<first-file>\" \"<second-file>\"",
+      "descriptionShort": "Compare two text files",
+      "descriptionLong": "Shows a unified diff; exit status 1 means differences were found.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-18",
+      "title": "printf '%s\\n' \"<text>\" | tr '[:lower:]' '[:upper:]'",
+      "command": "printf '%s\\n' \"<text>\" | tr '[:lower:]' '[:upper:]'",
+      "descriptionShort": "Convert text to uppercase",
+      "descriptionLong": "Prints converted text without writing to a file.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-text-19",
+      "title": "tee -a \"<file>\"",
+      "command": "tee -a \"<file>\"",
+      "descriptionShort": "Append typed input to a file",
+      "descriptionLong": "Copies standard input to the terminal and appends it to the file; Ctrl+D ends input.",
+      "categoryId": "text",
+      "tags": [
+        "text",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-01",
+      "title": "find . -type f -name '*.txt'",
+      "command": "find . -type f -name '*.txt'",
+      "descriptionShort": "Find text files recursively",
+      "descriptionLong": "Searches from the current directory. Quotes keep the shell from expanding the wildcard first.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-02",
+      "title": "find . -type f -iname '*<name>*'",
+      "command": "find . -type f -iname '*<name>*'",
+      "descriptionShort": "Find files ignoring name case",
+      "descriptionLong": "Replace the name fragment, keeping the wildcard pattern quoted.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-03",
+      "title": "find . -type d -name '<name>'",
+      "command": "find . -type d -name '<name>'",
+      "descriptionShort": "Find directories by name",
+      "descriptionLong": "Searches recursively for directories with the specified name.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-04",
+      "title": "find . -type f -mtime -7",
+      "command": "find . -type f -mtime -7",
+      "descriptionShort": "Find files modified in the last week",
+      "descriptionLong": "Uses elapsed 24-hour periods from the current time.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-05",
+      "title": "find . -type f -size +100M",
+      "command": "find . -type f -size +100M",
+      "descriptionShort": "Find files larger than 100 MiB",
+      "descriptionLong": "Searches beneath the current directory without changing files.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-06",
+      "title": "find . -type f -empty",
+      "command": "find . -type f -empty",
+      "descriptionShort": "Find empty files",
+      "descriptionLong": "Lists regular files with no contents.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-07",
+      "title": "grep -nF -- \"<text>\" \"<file>\"",
+      "command": "grep -nF -- \"<text>\" \"<file>\"",
+      "descriptionShort": "Find literal text with line numbers",
+      "descriptionLong": "Treats the search text as a fixed string rather than a regular expression.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-08",
+      "title": "grep -niF -- \"<text>\" \"<file>\"",
+      "command": "grep -niF -- \"<text>\" \"<file>\"",
+      "descriptionShort": "Find text ignoring case",
+      "descriptionLong": "Prints matching lines and their line numbers.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-09",
+      "title": "grep -rInF -- \"<text>\" \"<directory>\"",
+      "command": "grep -rInF -- \"<text>\" \"<directory>\"",
+      "descriptionShort": "Search text inside a directory",
+      "descriptionLong": "Searches recursively, skips binary files, and shows line numbers.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-10",
+      "title": "grep -vF -- \"<text>\" \"<file>\"",
+      "command": "grep -vF -- \"<text>\" \"<file>\"",
+      "descriptionShort": "Show lines that do not contain text",
+      "descriptionLong": "Prints the nonmatching lines without editing the file.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-11",
+      "title": "grep -E -- \"<regex>\" \"<file>\"",
+      "command": "grep -E -- \"<regex>\" \"<file>\"",
+      "descriptionShort": "Search with an extended regular expression",
+      "descriptionLong": "Use regular expression syntax for the pattern.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-12",
+      "title": "rg -n -- \"<pattern>\" \"<directory>\"",
+      "command": "rg -n -- \"<pattern>\" \"<directory>\"",
+      "descriptionShort": "Search project files with ripgrep",
+      "descriptionLong": "Respects ignore files by default; requires ripgrep.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-13",
+      "title": "rg --hidden -g '!.git' -- \"<pattern>\" .",
+      "command": "rg --hidden -g '!.git' -- \"<pattern>\" .",
+      "descriptionShort": "Search hidden project files too",
+      "descriptionLong": "Includes hidden files while excluding the .git directory; requires ripgrep.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-14",
+      "title": "locate \"<name>\"",
+      "command": "locate \"<name>\"",
+      "descriptionShort": "Search the filename index",
+      "descriptionLong": "Requires a locate implementation and an up-to-date index; recently created files may be absent.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-search-15",
+      "title": "type -a \"<command>\"",
+      "command": "type -a \"<command>\"",
+      "descriptionShort": "Find command definitions in your shell",
+      "descriptionLong": "Shows matching aliases, builtins, functions, and executable locations in the current shell.",
+      "categoryId": "search",
+      "tags": [
+        "search",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-archives-01",
+      "title": "tar -czf \"<archive>.tar.gz\" -- \"<directory>\"",
+      "command": "tar -czf \"<archive>.tar.gz\" -- \"<directory>\"",
+      "descriptionShort": "Create a compressed tar archive",
+      "descriptionLong": "Writes a gzip-compressed archive. An existing archive at that path is overwritten.",
+      "categoryId": "archives",
+      "tags": [
+        "archives",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-archives-02",
+      "title": "tar -tzf \"<archive>.tar.gz\"",
+      "command": "tar -tzf \"<archive>.tar.gz\"",
+      "descriptionShort": "List a compressed archive's contents",
+      "descriptionLong": "Inspects filenames without extracting files.",
+      "categoryId": "archives",
+      "tags": [
+        "archives",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-archives-03",
+      "title": "tar -xzf \"<archive>.tar.gz\" -C \"<destination>\"",
+      "command": "tar -xzf \"<archive>.tar.gz\" -C \"<destination>\"",
+      "descriptionShort": "Extract a compressed tar archive",
+      "descriptionLong": "The destination must exist. Use an empty destination and review the archive before extraction.",
+      "categoryId": "archives",
+      "tags": [
+        "archives",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-archives-04",
+      "title": "tar -cf \"<archive>.tar\" -- \"<directory>\"",
+      "command": "tar -cf \"<archive>.tar\" -- \"<directory>\"",
+      "descriptionShort": "Create an uncompressed tar archive",
+      "descriptionLong": "Stores the directory tree in an archive; an existing archive is overwritten.",
+      "categoryId": "archives",
+      "tags": [
+        "archives",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-archives-05",
+      "title": "tar -xf \"<archive>\" -C \"<destination>\"",
+      "command": "tar -xf \"<archive>\" -C \"<destination>\"",
+      "descriptionShort": "Extract a tar archive",
+      "descriptionLong": "GNU tar recognizes common compression formats. The destination must already exist.",
+      "categoryId": "archives",
+      "tags": [
+        "archives",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-archives-06",
+      "title": "zip -r \"<archive>.zip\" \"<directory>\"",
+      "command": "zip -r \"<archive>.zip\" \"<directory>\"",
+      "descriptionShort": "Compress a directory as ZIP",
+      "descriptionLong": "Creates or updates the archive; requires zip.",
+      "categoryId": "archives",
+      "tags": [
+        "archives",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-archives-07",
+      "title": "unzip -l \"<archive>.zip\"",
+      "command": "unzip -l \"<archive>.zip\"",
+      "descriptionShort": "List ZIP contents",
+      "descriptionLong": "Shows file names and sizes without extracting; requires unzip.",
+      "categoryId": "archives",
+      "tags": [
+        "archives",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-archives-08",
+      "title": "unzip -n \"<archive>.zip\" -d \"<destination>\"",
+      "command": "unzip -n \"<archive>.zip\" -d \"<destination>\"",
+      "descriptionShort": "Extract ZIP without replacing files",
+      "descriptionLong": "Creates the destination as needed and skips existing files.",
+      "categoryId": "archives",
+      "tags": [
+        "archives",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-archives-09",
+      "title": "gzip -k -- \"<file>\"",
+      "command": "gzip -k -- \"<file>\"",
+      "descriptionShort": "Compress a file and retain the original",
+      "descriptionLong": "Writes a .gz file while keeping the source file.",
+      "categoryId": "archives",
+      "tags": [
+        "archives",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-archives-10",
+      "title": "gunzip -k -- \"<file>.gz\"",
+      "command": "gunzip -k -- \"<file>.gz\"",
+      "descriptionShort": "Decompress and retain the compressed file",
+      "descriptionLong": "Writes the uncompressed file while keeping the .gz input.",
+      "categoryId": "archives",
+      "tags": [
+        "archives",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-archives-11",
+      "title": "xz -k -- \"<file>\"",
+      "command": "xz -k -- \"<file>\"",
+      "descriptionShort": "Compress with xz and keep the original",
+      "descriptionLong": "Creates a .xz file; requires xz and can use significant CPU time.",
+      "categoryId": "archives",
+      "tags": [
+        "archives",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-archives-12",
+      "title": "sha256sum -- \"<file>\"",
+      "command": "sha256sum -- \"<file>\"",
+      "descriptionShort": "Calculate a SHA-256 checksum",
+      "descriptionLong": "Use to compare a downloaded file with a trusted published checksum.",
+      "categoryId": "archives",
+      "tags": [
+        "archives",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-archives-13",
+      "title": "sha256sum -c \"<checksums-file>\"",
+      "command": "sha256sum -c \"<checksums-file>\"",
+      "descriptionShort": "Verify files against checksums",
+      "descriptionLong": "Reads expected hashes and filenames from a checksum file.",
+      "categoryId": "archives",
+      "tags": [
+        "archives",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-permissions-01",
+      "title": "ls -ld -- \"<path>\"",
+      "command": "ls -ld -- \"<path>\"",
+      "descriptionShort": "Inspect permissions on a path",
+      "descriptionLong": "Shows the path's own permissions rather than listing a directory's contents.",
+      "categoryId": "permissions",
+      "tags": [
+        "permissions",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-permissions-02",
+      "title": "chmod u+x -- \"<script>\"",
+      "command": "chmod u+x -- \"<script>\"",
+      "descriptionShort": "Make a script executable for its owner",
+      "descriptionLong": "Adds owner execute permission without changing other permission bits.",
+      "categoryId": "permissions",
+      "tags": [
+        "permissions",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-permissions-03",
+      "title": "chmod 600 -- \"<file>\"",
+      "command": "chmod 600 -- \"<file>\"",
+      "descriptionShort": "Restrict a file to its owner",
+      "descriptionLong": "Allows owner read and write only; useful for a private file.",
+      "categoryId": "permissions",
+      "tags": [
+        "permissions",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-permissions-04",
+      "title": "chmod 644 -- \"<file>\"",
+      "command": "chmod 644 -- \"<file>\"",
+      "descriptionShort": "Set common public-readable file permissions",
+      "descriptionLong": "Owner can read and write; group and others can read.",
+      "categoryId": "permissions",
+      "tags": [
+        "permissions",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-permissions-05",
+      "title": "chmod 755 -- \"<directory>\"",
+      "command": "chmod 755 -- \"<directory>\"",
+      "descriptionShort": "Set common directory permissions",
+      "descriptionLong": "Owner can modify entries; others can list and traverse the directory.",
+      "categoryId": "permissions",
+      "tags": [
+        "permissions",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-permissions-06",
+      "title": "chmod u-x -- \"<file>\"",
+      "command": "chmod u-x -- \"<file>\"",
+      "descriptionShort": "Remove owner execute permission",
+      "descriptionLong": "Changes only the owner's execute bit.",
+      "categoryId": "permissions",
+      "tags": [
+        "permissions",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-permissions-07",
+      "title": "sudo chown \"<user>:<group>\" -- \"<path>\"",
+      "command": "sudo chown \"<user>:<group>\" -- \"<path>\"",
+      "descriptionShort": "Change ownership of one path",
+      "descriptionLong": "Changes the owner and group; applies only to the specified path.",
+      "categoryId": "permissions",
+      "tags": [
+        "permissions",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-permissions-08",
+      "title": "chgrp \"<group>\" -- \"<path>\"",
+      "command": "chgrp \"<group>\" -- \"<path>\"",
+      "descriptionShort": "Change a file's group",
+      "descriptionLong": "You need appropriate ownership and group membership.",
+      "categoryId": "permissions",
+      "tags": [
+        "permissions",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-permissions-09",
+      "title": "umask",
+      "command": "umask",
+      "descriptionShort": "Show the current creation mask",
+      "descriptionLong": "Displays which permission bits the current shell removes when creating files.",
+      "categoryId": "permissions",
+      "tags": [
+        "permissions",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-permissions-10",
+      "title": "getfacl -- \"<path>\"",
+      "command": "getfacl -- \"<path>\"",
+      "descriptionShort": "Inspect access control lists",
+      "descriptionLong": "Shows additional ACL permissions when supported; requires the acl utilities.",
+      "categoryId": "permissions",
+      "tags": [
+        "permissions",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-users-01",
+      "title": "whoami",
+      "command": "whoami",
+      "descriptionShort": "Show your effective username",
+      "descriptionLong": "Prints the account name used for the current command.",
+      "categoryId": "users",
+      "tags": [
+        "users",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-users-02",
+      "title": "id",
+      "command": "id",
+      "descriptionShort": "Show your user and group IDs",
+      "descriptionLong": "Displays the current account's numeric IDs and group memberships.",
+      "categoryId": "users",
+      "tags": [
+        "users",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-users-03",
+      "title": "id \"<user>\"",
+      "command": "id \"<user>\"",
+      "descriptionShort": "Inspect another account's IDs",
+      "descriptionLong": "Shows the account's UID, primary group, and supplementary groups.",
+      "categoryId": "users",
+      "tags": [
+        "users",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-users-04",
+      "title": "groups",
+      "command": "groups",
+      "descriptionShort": "List your group memberships",
+      "descriptionLong": "Reports the current process's groups; newly added memberships may require a fresh login.",
+      "categoryId": "users",
+      "tags": [
+        "users",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-users-05",
+      "title": "getent passwd \"<user>\"",
+      "command": "getent passwd \"<user>\"",
+      "descriptionShort": "Look up an account",
+      "descriptionLong": "Queries configured account sources, including network directories if configured.",
+      "categoryId": "users",
+      "tags": [
+        "users",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-users-06",
+      "title": "who",
+      "command": "who",
+      "descriptionShort": "Show logged-in sessions",
+      "descriptionLong": "Lists login sessions recorded by the system.",
+      "categoryId": "users",
+      "tags": [
+        "users",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-users-07",
+      "title": "w",
+      "command": "w",
+      "descriptionShort": "Show sessions and their activity",
+      "descriptionLong": "Shows logged-in users, their activity, and system load.",
+      "categoryId": "users",
+      "tags": [
+        "users",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-users-08",
+      "title": "passwd",
+      "command": "passwd",
+      "descriptionShort": "Change your own password",
+      "descriptionLong": "Prompts securely in the terminal; do not put passwords into saved commands.",
+      "categoryId": "users",
+      "tags": [
+        "users",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-users-09",
+      "title": "sudo useradd -m \"<username>\"",
+      "command": "sudo useradd -m \"<username>\"",
+      "descriptionShort": "Create a user with a home directory",
+      "descriptionLong": "Creates the account and home directory. Configure a password separately if needed.",
+      "categoryId": "users",
+      "tags": [
+        "users",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-users-10",
+      "title": "sudo usermod -aG \"<group>\" \"<username>\"",
+      "command": "sudo usermod -aG \"<group>\" \"<username>\"",
+      "descriptionShort": "Add a user to a supplementary group",
+      "descriptionLong": "The -a flag preserves other group memberships. Some groups grant powerful system access.",
+      "categoryId": "users",
+      "tags": [
+        "users",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-users-11",
+      "title": "sudo passwd \"<username>\"",
+      "command": "sudo passwd \"<username>\"",
+      "descriptionShort": "Set an account password",
+      "descriptionLong": "Prompts in the terminal and requires administrator privileges.",
+      "categoryId": "users",
+      "tags": [
+        "users",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-users-12",
+      "title": "sudo userdel \"<username>\"",
+      "command": "sudo userdel \"<username>\"",
+      "descriptionShort": "Remove a user account",
+      "descriptionLong": "Removes the account but keeps the home directory; check running sessions first.",
+      "categoryId": "users",
+      "tags": [
+        "users",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-system-info-01",
+      "title": "uname -a",
+      "command": "uname -a",
+      "descriptionShort": "Show kernel and machine information",
+      "descriptionLong": "Prints kernel release, architecture, and related system information.",
+      "categoryId": "system-info",
+      "tags": [
+        "system-info",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-system-info-02",
+      "title": "cat /etc/os-release",
+      "command": "cat /etc/os-release",
+      "descriptionShort": "Identify the Linux distribution",
+      "descriptionLong": "Displays the distribution's name and version metadata.",
+      "categoryId": "system-info",
+      "tags": [
+        "system-info",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-system-info-03",
+      "title": "lscpu",
+      "command": "lscpu",
+      "descriptionShort": "Inspect CPU architecture",
+      "descriptionLong": "Shows processor model, cores, threads, and architecture details.",
+      "categoryId": "system-info",
+      "tags": [
+        "system-info",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-system-info-04",
+      "title": "hostnamectl",
+      "command": "hostnamectl",
+      "descriptionShort": "Inspect hostname and OS details",
+      "descriptionLong": "Uses systemd to show host identity and operating system information.",
+      "categoryId": "system-info",
+      "tags": [
+        "system-info",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-system-info-05",
+      "title": "date -Is",
+      "command": "date -Is",
+      "descriptionShort": "Print the current date and time",
+      "descriptionLong": "Uses ISO 8601 format with the local timezone offset.",
+      "categoryId": "system-info",
+      "tags": [
+        "system-info",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-system-info-06",
+      "title": "timedatectl",
+      "command": "timedatectl",
+      "descriptionShort": "Inspect clock and timezone settings",
+      "descriptionLong": "Shows timezone and time synchronization status on systemd systems.",
+      "categoryId": "system-info",
+      "tags": [
+        "system-info",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-system-info-07",
+      "title": "lsusb",
+      "command": "lsusb",
+      "descriptionShort": "List USB devices",
+      "descriptionLong": "Requires usbutils; shows connected devices without changing them.",
+      "categoryId": "system-info",
+      "tags": [
+        "system-info",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-system-info-08",
+      "title": "lspci",
+      "command": "lspci",
+      "descriptionShort": "List PCI devices",
+      "descriptionLong": "Requires pciutils; useful for identifying graphics, network, and storage hardware.",
+      "categoryId": "system-info",
+      "tags": [
+        "system-info",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-system-info-09",
+      "title": "vmstat 1 5",
+      "command": "vmstat 1 5",
+      "descriptionShort": "Sample memory and CPU activity",
+      "descriptionLong": "Prints five reports at one-second intervals; the first report includes averages since boot.",
+      "categoryId": "system-info",
+      "tags": [
+        "system-info",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-system-info-10",
+      "title": "sudo dmesg --level=err,warn",
+      "command": "sudo dmesg --level=err,warn",
+      "descriptionShort": "Inspect kernel warnings and errors",
+      "descriptionLong": "May require administrator privileges because kernel logs are restricted.",
+      "categoryId": "system-info",
+      "tags": [
+        "system-info",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-editors-01",
+      "title": "nano \"<file>\"",
+      "command": "nano \"<file>\"",
+      "descriptionShort": "Edit a file with Nano",
+      "descriptionLong": "Ctrl+O saves, Enter confirms the filename, and Ctrl+X exits. Requires nano.",
+      "categoryId": "editors",
+      "tags": [
+        "editors",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-editors-02",
+      "title": "vim \"<file>\"",
+      "command": "vim \"<file>\"",
+      "descriptionShort": "Edit a file with Vim",
+      "descriptionLong": "Press i to insert text; Esc then :wq saves and exits, while :q! discards changes.",
+      "categoryId": "editors",
+      "tags": [
+        "editors",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-editors-03",
+      "title": "man \"<command>\"",
+      "command": "man \"<command>\"",
+      "descriptionShort": "Read a command's manual",
+      "descriptionLong": "Use / to search and q to quit the usual pager. Manual packages may need installation.",
+      "categoryId": "editors",
+      "tags": [
+        "editors",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-editors-04",
+      "title": "apropos \"<keyword>\"",
+      "command": "apropos \"<keyword>\"",
+      "descriptionShort": "Find relevant manual pages",
+      "descriptionLong": "Searches manual page summaries; the local manual index must be available.",
+      "categoryId": "editors",
+      "tags": [
+        "editors",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-editors-05",
+      "title": "help cd",
+      "command": "help cd",
+      "descriptionShort": "Read Bash builtin help",
+      "descriptionLong": "Run in Bash to see help for its cd builtin.",
+      "categoryId": "editors",
+      "tags": [
+        "editors",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-networking-01",
+      "title": "curl -I \"<url>\"",
+      "command": "curl -I \"<url>\"",
+      "descriptionShort": "Inspect HTTP response headers",
+      "descriptionLong": "Sends a HEAD request. Some servers handle HEAD differently from GET.",
+      "categoryId": "networking",
+      "tags": [
+        "networking",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-networking-02",
+      "title": "curl --fail --show-error --location \"<url>\"",
+      "command": "curl --fail --show-error --location \"<url>\"",
+      "descriptionShort": "Fetch a URL and follow redirects",
+      "descriptionLong": "Prints the response and reports HTTP errors. TLS certificate verification remains enabled.",
+      "categoryId": "networking",
+      "tags": [
+        "networking",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-networking-03",
+      "title": "curl --fail --location --output \"<file>\" \"<url>\"",
+      "command": "curl --fail --location --output \"<file>\" \"<url>\"",
+      "descriptionShort": "Download to a named file",
+      "descriptionLong": "Writes the response to the chosen file; an existing file can be overwritten.",
+      "categoryId": "networking",
+      "tags": [
+        "networking",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-networking-04",
+      "title": "curl --connect-timeout 5 --max-time 15 -I \"<url>\"",
+      "command": "curl --connect-timeout 5 --max-time 15 -I \"<url>\"",
+      "descriptionShort": "Check a URL with time limits",
+      "descriptionLong": "Limits connection setup to five seconds and the complete request to fifteen seconds.",
+      "categoryId": "networking",
+      "tags": [
+        "networking",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-networking-05",
+      "title": "wget -c \"<url>\"",
+      "command": "wget -c \"<url>\"",
+      "descriptionShort": "Download or resume a file",
+      "descriptionLong": "Attempts to continue an existing download; verify the resulting file when the remote content may have changed.",
+      "categoryId": "networking",
+      "tags": [
+        "networking",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-networking-06",
+      "title": "dig \"<domain>\"",
+      "command": "dig \"<domain>\"",
+      "descriptionShort": "Inspect DNS answers",
+      "descriptionLong": "Requires DNS tools such as bind-utils on Fedora or dnsutils on Debian.",
+      "categoryId": "networking",
+      "tags": [
+        "networking",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-networking-07",
+      "title": "dig +short \"<domain>\" A",
+      "command": "dig +short \"<domain>\" A",
+      "descriptionShort": "Look up IPv4 DNS records",
+      "descriptionLong": "Prints concise answers for the domain's A record query.",
+      "categoryId": "networking",
+      "tags": [
+        "networking",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-networking-08",
+      "title": "nslookup \"<domain>\"",
+      "command": "nslookup \"<domain>\"",
+      "descriptionShort": "Look up a domain name",
+      "descriptionLong": "Queries DNS using a tool provided by your distribution's DNS utility package.",
+      "categoryId": "networking",
+      "tags": [
+        "networking",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-networking-09",
+      "title": "ip -brief link",
+      "command": "ip -brief link",
+      "descriptionShort": "Inspect network link state",
+      "descriptionLong": "Shows interface names, MAC addresses, and link status.",
+      "categoryId": "networking",
+      "tags": [
+        "networking",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-networking-10",
+      "title": "ip route get \"<ip-address>\"",
+      "command": "ip route get \"<ip-address>\"",
+      "descriptionShort": "Show the route to an address",
+      "descriptionLong": "Reports the interface and source address the kernel would use.",
+      "categoryId": "networking",
+      "tags": [
+        "networking",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-networking-11",
+      "title": "ss -ltnp",
+      "command": "ss -ltnp",
+      "descriptionShort": "Inspect listening TCP ports",
+      "descriptionLong": "Shows processes where permissions allow; extra privileges may reveal more process details.",
+      "categoryId": "networking",
+      "tags": [
+        "networking",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-networking-12",
+      "title": "nmcli connection show",
+      "command": "nmcli connection show",
+      "descriptionShort": "List saved network connections",
+      "descriptionLong": "Uses NetworkManager without exposing stored Wi-Fi passwords.",
+      "categoryId": "networking",
+      "tags": [
+        "networking",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-networking-13",
+      "title": "traceroute \"<host>\"",
+      "command": "traceroute \"<host>\"",
+      "descriptionShort": "Trace network hops",
+      "descriptionLong": "Requires traceroute; filtering can hide intermediate hops.",
+      "categoryId": "networking",
+      "tags": [
+        "networking",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-ssh-01",
+      "title": "ssh -i \"<private-key>\" \"<user>@<host>\"",
+      "command": "ssh -i \"<private-key>\" \"<user>@<host>\"",
+      "descriptionShort": "Connect using a specific SSH key",
+      "descriptionLong": "Uses an existing private key file; verify the server host key on first connection.",
+      "categoryId": "ssh",
+      "tags": [
+        "ssh",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-ssh-02",
+      "title": "ssh -p <port> \"<user>@<host>\"",
+      "command": "ssh -p <port> \"<user>@<host>\"",
+      "descriptionShort": "Connect to a custom SSH port",
+      "descriptionLong": "Replace the port with the server's SSH listening port.",
+      "categoryId": "ssh",
+      "tags": [
+        "ssh",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-ssh-03",
+      "title": "ssh -N -L 1420:127.0.0.1:1420 \"<user>@<host>\"",
+      "command": "ssh -N -L 1420:127.0.0.1:1420 \"<user>@<host>\"",
+      "descriptionShort": "Forward a remote web preview locally",
+      "descriptionLong": "Run on the device that opens the browser. While connected, its localhost:1420 forwards to the remote host's localhost:1420.",
+      "categoryId": "ssh",
+      "tags": [
+        "ssh",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-ssh-04",
+      "title": "ssh-keygen -t ed25519 -C \"<label>\"",
+      "command": "ssh-keygen -t ed25519 -C \"<label>\"",
+      "descriptionShort": "Create an SSH key pair",
+      "descriptionLong": "Prompts for a filename and passphrase. Use a new filename to avoid replacing an existing key.",
+      "categoryId": "ssh",
+      "tags": [
+        "ssh",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-ssh-05",
+      "title": "ssh-copy-id \"<user>@<host>\"",
+      "command": "ssh-copy-id \"<user>@<host>\"",
+      "descriptionShort": "Install your public key on a server",
+      "descriptionLong": "Adds a local public key to the remote account after authentication; verify the target account first.",
+      "categoryId": "ssh",
+      "tags": [
+        "ssh",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-ssh-06",
+      "title": "scp -r \"<directory>\" \"<user>@<host>:<destination>\"",
+      "command": "scp -r \"<directory>\" \"<user>@<host>:<destination>\"",
+      "descriptionShort": "Copy a directory over SSH",
+      "descriptionLong": "Transfers the directory recursively; remote destination files may be overwritten.",
+      "categoryId": "ssh",
+      "tags": [
+        "ssh",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-ssh-07",
+      "title": "rsync -avhn -- \"<source>/\" \"<destination>/\"",
+      "command": "rsync -avhn -- \"<source>/\" \"<destination>/\"",
+      "descriptionShort": "Preview directory synchronization",
+      "descriptionLong": "Dry run: lists proposed transfers without changing files. The trailing source slash means its contents.",
+      "categoryId": "ssh",
+      "tags": [
+        "ssh",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-processes-01",
+      "title": "htop",
+      "command": "htop",
+      "descriptionShort": "Browse processes interactively",
+      "descriptionLong": "Requires htop. Use its controls to inspect processes; q exits.",
+      "categoryId": "processes",
+      "tags": [
+        "processes",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-processes-02",
+      "title": "ps -ef",
+      "command": "ps -ef",
+      "descriptionShort": "List processes and parent IDs",
+      "descriptionLong": "Shows a full process listing including the parent process ID.",
+      "categoryId": "processes",
+      "tags": [
+        "processes",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-processes-03",
+      "title": "ps -p <pid> -o pid,ppid,user,etime,args",
+      "command": "ps -p <pid> -o pid,ppid,user,etime,args",
+      "descriptionShort": "Inspect a specific process",
+      "descriptionLong": "Displays identity, elapsed time, and the command line for the selected PID.",
+      "categoryId": "processes",
+      "tags": [
+        "processes",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-processes-04",
+      "title": "kill -TERM <pid>",
+      "command": "kill -TERM <pid>",
+      "descriptionShort": "Request a process to stop",
+      "descriptionLong": "Sends SIGTERM so the application has an opportunity to clean up. Check the PID first.",
+      "categoryId": "processes",
+      "tags": [
+        "processes",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-processes-05",
+      "title": "kill -KILL <pid>",
+      "command": "kill -KILL <pid>",
+      "descriptionShort": "Force a process to stop",
+      "descriptionLong": "Use only after graceful termination fails; the process cannot save data or clean up.",
+      "categoryId": "processes",
+      "tags": [
+        "processes",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-processes-06",
+      "title": "pgrep -af -- \"<pattern>\"",
+      "command": "pgrep -af -- \"<pattern>\"",
+      "descriptionShort": "Find processes by full command line",
+      "descriptionLong": "Prints matching process IDs and commands; the pattern is a regular expression.",
+      "categoryId": "processes",
+      "tags": [
+        "processes",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-processes-07",
+      "title": "lsof -i :<port>",
+      "command": "lsof -i :<port>",
+      "descriptionShort": "Find processes using a port",
+      "descriptionLong": "Requires lsof; visibility of other users' processes depends on privileges.",
+      "categoryId": "processes",
+      "tags": [
+        "processes",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-processes-08",
+      "title": "watch -n 2 'df -h'",
+      "command": "watch -n 2 'df -h'",
+      "descriptionShort": "Monitor disk usage repeatedly",
+      "descriptionLong": "Refreshes the display every two seconds; Ctrl+C exits.",
+      "categoryId": "processes",
+      "tags": [
+        "processes",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-systemd-01",
+      "title": "sudo systemctl start \"<service>\"",
+      "command": "sudo systemctl start \"<service>\"",
+      "descriptionShort": "Start a system service",
+      "descriptionLong": "Starts the selected service now without changing its boot setting.",
+      "categoryId": "systemd",
+      "tags": [
+        "systemd",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-systemd-02",
+      "title": "sudo systemctl stop \"<service>\"",
+      "command": "sudo systemctl stop \"<service>\"",
+      "descriptionShort": "Stop a system service",
+      "descriptionLong": "Stops the selected service and may interrupt dependent applications.",
+      "categoryId": "systemd",
+      "tags": [
+        "systemd",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-systemd-03",
+      "title": "sudo systemctl restart \"<service>\"",
+      "command": "sudo systemctl restart \"<service>\"",
+      "descriptionShort": "Restart a system service",
+      "descriptionLong": "Stops and starts the service; expect an interruption.",
+      "categoryId": "systemd",
+      "tags": [
+        "systemd",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-systemd-04",
+      "title": "sudo systemctl enable --now \"<service>\"",
+      "command": "sudo systemctl enable --now \"<service>\"",
+      "descriptionShort": "Start a service and enable it at boot",
+      "descriptionLong": "Changes boot configuration and starts the service immediately.",
+      "categoryId": "systemd",
+      "tags": [
+        "systemd",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-systemd-05",
+      "title": "sudo systemctl disable \"<service>\"",
+      "command": "sudo systemctl disable \"<service>\"",
+      "descriptionShort": "Prevent a service from starting at boot",
+      "descriptionLong": "Changes its enablement links; a running service is not stopped by this command.",
+      "categoryId": "systemd",
+      "tags": [
+        "systemd",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-systemd-06",
+      "title": "sudo systemctl daemon-reload",
+      "command": "sudo systemctl daemon-reload",
+      "descriptionShort": "Reload systemd unit definitions",
+      "descriptionLong": "Use after changing unit files. This does not itself restart services.",
+      "categoryId": "systemd",
+      "tags": [
+        "systemd",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-systemd-07",
+      "title": "systemctl cat \"<service>\"",
+      "command": "systemctl cat \"<service>\"",
+      "descriptionShort": "Read a service unit and overrides",
+      "descriptionLong": "Displays the unit files systemd uses for the selected service.",
+      "categoryId": "systemd",
+      "tags": [
+        "systemd",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-logs-01",
+      "title": "journalctl -u \"<service>\" -f",
+      "command": "journalctl -u \"<service>\" -f",
+      "descriptionShort": "Follow a service's journal",
+      "descriptionLong": "Streams new log entries for the selected unit; Ctrl+C stops following.",
+      "categoryId": "logs",
+      "tags": [
+        "logs",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-logs-02",
+      "title": "journalctl --since '1 hour ago'",
+      "command": "journalctl --since '1 hour ago'",
+      "descriptionShort": "Read recent journal entries",
+      "descriptionLong": "Shows entries from the last hour that your account can access.",
+      "categoryId": "logs",
+      "tags": [
+        "logs",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-logs-03",
+      "title": "journalctl -b -1",
+      "command": "journalctl -b -1",
+      "descriptionShort": "Read the previous boot's journal",
+      "descriptionLong": "Requires journal data to have been retained from the preceding boot.",
+      "categoryId": "logs",
+      "tags": [
+        "logs",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-logs-04",
+      "title": "journalctl -k -b",
+      "command": "journalctl -k -b",
+      "descriptionShort": "Read kernel logs from this boot",
+      "descriptionLong": "Filters the journal to kernel messages for the current boot.",
+      "categoryId": "logs",
+      "tags": [
+        "logs",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-disk-01",
+      "title": "du -h --max-depth=1 -- \"<directory>\"",
+      "command": "du -h --max-depth=1 -- \"<directory>\"",
+      "descriptionShort": "Measure immediate subdirectory sizes",
+      "descriptionLong": "GNU du reports disk usage one level below the chosen directory.",
+      "categoryId": "disk",
+      "tags": [
+        "disk",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-disk-02",
+      "title": "df -hT",
+      "command": "df -hT",
+      "descriptionShort": "Show filesystem sizes and types",
+      "descriptionLong": "Lists capacity and mount information with human-readable units.",
+      "categoryId": "disk",
+      "tags": [
+        "disk",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-disk-03",
+      "title": "lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINTS",
+      "command": "lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINTS",
+      "descriptionShort": "Inspect disks and mount locations",
+      "descriptionLong": "Shows devices, filesystem types, and their mount points.",
+      "categoryId": "disk",
+      "tags": [
+        "disk",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-shell-01",
+      "title": "printenv PATH",
+      "command": "printenv PATH",
+      "descriptionShort": "Inspect your executable search path",
+      "descriptionLong": "Prints the PATH value inherited by this command.",
+      "categoryId": "shell",
+      "tags": [
+        "shell",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-shell-02",
+      "title": "printenv",
+      "command": "printenv",
+      "descriptionShort": "Inspect environment variables",
+      "descriptionLong": "Values can contain credentials; review the output before sharing it.",
+      "categoryId": "shell",
+      "tags": [
+        "shell",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-shell-03",
+      "title": "export <NAME>='<value>'",
+      "command": "export <NAME>='<value>'",
+      "descriptionShort": "Set a variable in your current shell",
+      "descriptionLong": "Paste into the terminal whose environment you want to change; values are inherited by child processes.",
+      "categoryId": "shell",
+      "tags": [
+        "shell",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-shell-04",
+      "title": "unset <NAME>",
+      "command": "unset <NAME>",
+      "descriptionShort": "Remove a current-shell variable",
+      "descriptionLong": "Affects the shell in which you paste the command.",
+      "categoryId": "shell",
+      "tags": [
+        "shell",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-shell-05",
+      "title": "source ~/.bashrc",
+      "command": "source ~/.bashrc",
+      "descriptionShort": "Reload Bash configuration",
+      "descriptionLong": "Executes the contents of your .bashrc in the current Bash session.",
+      "categoryId": "shell",
+      "tags": [
+        "shell",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-shell-06",
+      "title": "alias ll='ls -lah'",
+      "command": "alias ll='ls -lah'",
+      "descriptionShort": "Define a convenient listing alias",
+      "descriptionLong": "Defines the alias for the current shell; save it in shell configuration to keep it across sessions.",
+      "categoryId": "shell",
+      "tags": [
+        "shell",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-shell-07",
+      "title": "unalias ll",
+      "command": "unalias ll",
+      "descriptionShort": "Remove the ll alias",
+      "descriptionLong": "Affects the current shell if that alias exists.",
+      "categoryId": "shell",
+      "tags": [
+        "shell",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-shell-08",
+      "title": "history 20",
+      "command": "history 20",
+      "descriptionShort": "Review recent Bash command history",
+      "descriptionLong": "Shows recent commands from the current interactive shell; history may contain sensitive values.",
+      "categoryId": "shell",
+      "tags": [
+        "shell",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-shell-09",
+      "title": "jobs -l",
+      "command": "jobs -l",
+      "descriptionShort": "List your shell's background jobs",
+      "descriptionLong": "Shows jobs started by the current interactive shell, including process IDs.",
+      "categoryId": "shell",
+      "tags": [
+        "shell",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-shell-10",
+      "title": "fg %1",
+      "command": "fg %1",
+      "descriptionShort": "Resume job 1 in the foreground",
+      "descriptionLong": "Uses job number 1 from the current shell's jobs list.",
+      "categoryId": "shell",
+      "tags": [
+        "shell",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-shell-11",
+      "title": "bg %1",
+      "command": "bg %1",
+      "descriptionShort": "Resume suspended job 1 in the background",
+      "descriptionLong": "The job remains associated with the current shell.",
+      "categoryId": "shell",
+      "tags": [
+        "shell",
+        "linux",
+        "basics",
+        "current-shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-shell-12",
+      "title": "printf '%s\\n' \"<text>\" > \"<file>\"",
+      "command": "printf '%s\\n' \"<text>\" > \"<file>\"",
+      "descriptionShort": "Write text to a file",
+      "descriptionLong": "The redirection replaces the destination's contents. Review the filename first.",
+      "categoryId": "shell",
+      "tags": [
+        "shell",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-shell-13",
+      "title": "printf '%s\\n' \"<text>\" >> \"<file>\"",
+      "command": "printf '%s\\n' \"<text>\" >> \"<file>\"",
+      "descriptionShort": "Append text to a file",
+      "descriptionLong": "Creates the file if needed and preserves existing contents.",
+      "categoryId": "shell",
+      "tags": [
+        "shell",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-fedora-01",
+      "title": "dnf search \"<package>\"",
+      "command": "dnf search \"<package>\"",
+      "descriptionShort": "Search Fedora packages",
+      "descriptionLong": "Searches package metadata without installing software.",
+      "categoryId": "fedora",
+      "tags": [
+        "fedora",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-fedora-02",
+      "title": "sudo dnf install \"<package>\"",
+      "command": "sudo dnf install \"<package>\"",
+      "descriptionShort": "Install a Fedora package",
+      "descriptionLong": "Review the transaction and dependencies before confirming.",
+      "categoryId": "fedora",
+      "tags": [
+        "fedora",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-fedora-03",
+      "title": "sudo dnf remove \"<package>\"",
+      "command": "sudo dnf remove \"<package>\"",
+      "descriptionShort": "Remove a Fedora package",
+      "descriptionLong": "Review dependent packages selected for removal before confirming.",
+      "categoryId": "fedora",
+      "tags": [
+        "fedora",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-debian-01",
+      "title": "apt search \"<package>\"",
+      "command": "apt search \"<package>\"",
+      "descriptionShort": "Search Debian or Ubuntu packages",
+      "descriptionLong": "Searches available package descriptions without installing anything.",
+      "categoryId": "debian",
+      "tags": [
+        "debian",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-debian-02",
+      "title": "sudo apt install \"<package>\"",
+      "command": "sudo apt install \"<package>\"",
+      "descriptionShort": "Install a Debian or Ubuntu package",
+      "descriptionLong": "Review the proposed transaction before confirming.",
+      "categoryId": "debian",
+      "tags": [
+        "debian",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-debian-03",
+      "title": "sudo apt remove \"<package>\"",
+      "command": "sudo apt remove \"<package>\"",
+      "descriptionShort": "Remove a Debian or Ubuntu package",
+      "descriptionLong": "Removes the package while generally retaining its configuration files.",
+      "categoryId": "debian",
+      "tags": [
+        "debian",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-arch-01",
+      "title": "sudo pacman -S \"<package>\"",
+      "command": "sudo pacman -S \"<package>\"",
+      "descriptionShort": "Install an Arch package",
+      "descriptionLong": "Use an up-to-date system; Arch does not support partial upgrades.",
+      "categoryId": "arch",
+      "tags": [
+        "arch",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-arch-02",
+      "title": "sudo pacman -R \"<package>\"",
+      "command": "sudo pacman -R \"<package>\"",
+      "descriptionShort": "Remove an Arch package",
+      "descriptionLong": "Review the removal transaction before confirming.",
+      "categoryId": "arch",
+      "tags": [
+        "arch",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-opensuse-01",
+      "title": "sudo zypper install \"<package>\"",
+      "command": "sudo zypper install \"<package>\"",
+      "descriptionShort": "Install an openSUSE package",
+      "descriptionLong": "Resolves dependencies and asks for transaction confirmation.",
+      "categoryId": "opensuse",
+      "tags": [
+        "opensuse",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-opensuse-02",
+      "title": "sudo zypper remove \"<package>\"",
+      "command": "sudo zypper remove \"<package>\"",
+      "descriptionShort": "Remove an openSUSE package",
+      "descriptionLong": "Review the packages listed for removal before confirming.",
+      "categoryId": "opensuse",
+      "tags": [
+        "opensuse",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-flatpak-01",
+      "title": "flatpak search \"<application>\"",
+      "command": "flatpak search \"<application>\"",
+      "descriptionShort": "Find Flatpak applications",
+      "descriptionLong": "Searches configured remotes for matching applications.",
+      "categoryId": "flatpak",
+      "tags": [
+        "flatpak",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-flatpak-02",
+      "title": "flatpak install flathub \"<application-id>\"",
+      "command": "flatpak install flathub \"<application-id>\"",
+      "descriptionShort": "Install an application from Flathub",
+      "descriptionLong": "Requires the Flathub remote; review application permissions before confirming.",
+      "categoryId": "flatpak",
+      "tags": [
+        "flatpak",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-flatpak-03",
+      "title": "flatpak uninstall \"<application-id>\"",
+      "command": "flatpak uninstall \"<application-id>\"",
+      "descriptionShort": "Uninstall a Flatpak application",
+      "descriptionLong": "Removes the selected application; review the transaction before confirming.",
+      "categoryId": "flatpak",
+      "tags": [
+        "flatpak",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-alpine-01",
+      "title": "sudo apk update",
+      "command": "sudo apk update",
+      "descriptionShort": "Refresh Alpine package indexes",
+      "descriptionLong": "Requires Alpine Linux and sudo configured for your account; root shells can omit sudo.",
+      "categoryId": "alpine",
+      "tags": [
+        "alpine",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-alpine-02",
+      "title": "sudo apk upgrade",
+      "command": "sudo apk upgrade",
+      "descriptionShort": "Upgrade installed Alpine packages",
+      "descriptionLong": "Review system compatibility before updating; requires administrator privileges.",
+      "categoryId": "alpine",
+      "tags": [
+        "alpine",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-alpine-03",
+      "title": "apk search \"<package>\"",
+      "command": "apk search \"<package>\"",
+      "descriptionShort": "Search Alpine packages",
+      "descriptionLong": "Searches the available package indexes.",
+      "categoryId": "alpine",
+      "tags": [
+        "alpine",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-alpine-04",
+      "title": "sudo apk add \"<package>\"",
+      "command": "sudo apk add \"<package>\"",
+      "descriptionShort": "Install an Alpine package",
+      "descriptionLong": "Adds the package and its dependencies; requires administrator privileges.",
+      "categoryId": "alpine",
+      "tags": [
+        "alpine",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    },
+    {
+      "id": "linux-basics-alpine-05",
+      "title": "sudo apk del \"<package>\"",
+      "command": "sudo apk del \"<package>\"",
+      "descriptionShort": "Remove an Alpine package",
+      "descriptionLong": "Removes the selected package and dependencies no longer required by the package manager.",
+      "categoryId": "alpine",
+      "tags": [
+        "alpine",
+        "linux",
+        "basics"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 3
+    }
+  ]
+}

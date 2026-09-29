@@ -51,6 +51,7 @@ fn run_in_terminal(app: tauri::AppHandle, id: String) -> Result<(), String> {
     let snapshot = db::load(&app)?;
     if !snapshot.settings.show_run { return Err("Run is disabled in settings".into()); }
     let item = snapshot.commands.iter().find(|item| item.id == id && item.is_enabled).ok_or("Enabled command not found")?;
+    if item.tags.iter().any(|tag| tag == "current-shell") { return Err("Copy this command into your current terminal".into()); }
     let command = &item.command;
     if command.trim().is_empty() || command.contains('\0') || (command.contains('<') && command.contains('>')) || command.contains("\"\"") { return Err("Edit command placeholders before running".into()); }
     let script = format!("{command}; printf '\\n[Nav Toolbox] Command finished.\\n'; exec bash");

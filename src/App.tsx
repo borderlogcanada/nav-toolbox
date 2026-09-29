@@ -87,6 +87,7 @@ const iconMap: Record<string, LucideIcon> = {
   box: Box,
   activity: Activity,
   shield: Shield,
+  search: Search,
 };
 const blankCommand = (categoryId = "docker"): Command => ({
   id: crypto.randomUUID(),
@@ -102,10 +103,18 @@ const blankCommand = (categoryId = "docker"): Command => ({
   lastUsedAt: null,
 });
 const dangerous = (value: string) =>
-  /(^|[;&|\s])(sudo|rm|dd|mkfs|chmod|chown|shred|wipefs|fdisk|parted|poweroff|reboot|prune|down|restore|reset|upgrade|update)(\s|$)/i.test(
+  /(^|[;&|\s])(sudo|rm|kill|pkill|dd|mkfs|chmod|chown|shred|wipefs|fdisk|parted|poweroff|reboot|prune|down|restore|reset|upgrade|update)(\s|$)/i.test(
     value,
   );
 const isTemplate = (value: string) => /<[^>]+>|""/.test(value);
+const runBlockReason = (command: Command) =>
+  command.tags.includes("current-shell")
+    ? "Copy into your current terminal"
+    : isTemplate(command.command)
+      ? "Edit placeholders first"
+      : !command.isEnabled
+        ? "Enable this command first"
+        : "";
 const displayShortcut = (shortcut: string) =>
   shortcut.replace("Control", "Ctrl").replaceAll("+", " + ");
 
@@ -351,6 +360,10 @@ export default function App() {
   }
   async function execute(command: Command) {
     if (!settings.showRun) return;
+    if (command.tags.includes("current-shell")) {
+      notify("Copy this command into your current terminal");
+      return;
+    }
     if (isTemplate(command.command)) {
       notify("Fill in the placeholders before running this command");
       return;
@@ -928,16 +941,8 @@ export default function App() {
                           {settings.showRun && (
                             <button
                               className="run-button"
-                              disabled={
-                                isTemplate(item.command) || !item.isEnabled
-                              }
-                              title={
-                                isTemplate(item.command)
-                                  ? "Edit placeholders first"
-                                  : !item.isEnabled
-                                    ? "Enable this command first"
-                                    : "Run in terminal"
-                              }
+                              disabled={!!runBlockReason(item)}
+                              title={runBlockReason(item) || "Run in terminal"}
                               onClick={(e) => {
                                 e.stopPropagation();
                                 void execute(item);
@@ -1032,16 +1037,9 @@ export default function App() {
                         {settings.showRun && (
                           <button
                             className="secondary-button"
-                            disabled={
-                              isTemplate(selected.command) ||
-                              !selected.isEnabled
-                            }
+                            disabled={!!runBlockReason(selected)}
                             title={
-                              isTemplate(selected.command)
-                                ? "Edit placeholders first"
-                                : !selected.isEnabled
-                                  ? "Enable this command first"
-                                  : "Run in terminal"
+                              runBlockReason(selected) || "Run in terminal"
                             }
                             onClick={() => void execute(selected)}
                           >

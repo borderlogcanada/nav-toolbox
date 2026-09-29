@@ -15,7 +15,7 @@ For native changes, install the [Tauri Linux prerequisites](https://v2.tauri.app
 
 ## Command catalog
 
-Add commands to `src/data/catalog-v2.json` with unique IDs, a real category, a short explanation, and `isEnabled: false`. Use `<placeholder>` for values people must supply. Do not add credentials, personal hostnames, or commands that irreversibly modify disks or delete files. Prefer official documentation when checking command syntax.
+The current basics pack is `src/data/catalog-v3.json`. For future shipped catalog updates, add a new versioned pack and register its migration in both data adapters so existing users receive it. Use unique IDs, a real category, a short explanation, and `isEnabled: false`. Use `<placeholder>` for values people must supply. Do not add credentials, personal hostnames, or commands that irreversibly modify disks or delete files. Prefer official documentation when checking command syntax.
 
 ## Pull requests
 
