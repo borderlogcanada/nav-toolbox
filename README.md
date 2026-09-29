@@ -57,13 +57,23 @@ npm ci
 npm run dev
 ```
 
-Open `http://127.0.0.1:1420/` for the manager or `http://127.0.0.1:1420/?view=popup` for the launcher on the PC. For a phone connected through SSH, keep Vite running in one session and set up a **local** port forward in another session:
+Open `http://127.0.0.1:1420/` for the manager or `http://127.0.0.1:1420/?view=popup` for the launcher on the PC.
+
+For a phone connected to the **same Tailscale network** as the PC, start Vite on the PC's Tailscale IPv4 address (shown by `tailscale ip -4`):
+
+```bash
+npm run dev -- --host "$(tailscale ip -4)"
+```
+
+Then open `http://PC_TAILSCALE_IP:1420/` in the phone browser. Keep that terminal running. A Vite server that says `Local: http://127.0.0.1:1420/` is reachable only from the PC; the phone's `127.0.0.1` is a different device. On mobile data, the PC's `10.x.x.x` home-network address usually is not reachable.
+
+Alternatively, with an SSH client that supports **local port forwarding**, keep Vite running on `127.0.0.1` on the PC and set up a local forward from the phone:
 
 ```bash
 ssh -N -L 1420:127.0.0.1:1420 user@your-pc
 ```
 
-Open `http://127.0.0.1:1420/` in the phone's browser while that SSH session stays connected. A phone SSH app may offer the same setting as **Local port forwarding**. Without forwarding, `127.0.0.1` refers to the phone itself. The browser preview cannot test the tray, global shortcut, SQLite, or native Run action.
+Open `http://127.0.0.1:1420/` in the phone's browser while that SSH session stays connected. Run the forwarding command **on the phone**, not inside the remote Fedora shell; a phone SSH app may expose the same setting as **Local port forwarding**. The browser preview cannot test the tray, global shortcut, SQLite, or native Run action.
 
 ## Build and verify
 
