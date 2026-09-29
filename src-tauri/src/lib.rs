@@ -34,6 +34,8 @@ fn load_snapshot(app: tauri::AppHandle) -> Result<db::Snapshot, String> { db::lo
 #[tauri::command]
 fn save_command(app: tauri::AppHandle, command: db::Command) -> Result<(), String> { db::save_command(&app, command) }
 #[tauri::command]
+fn set_category_enabled(app: tauri::AppHandle, category_id: String, enabled: bool) -> Result<(), String> { db::set_category_enabled(&app, &category_id, enabled) }
+#[tauri::command]
 fn delete_command(app: tauri::AppHandle, id: String) -> Result<(), String> { db::delete_command(&app, &id) }
 #[tauri::command]
 fn save_category(app: tauri::AppHandle, category: db::Category) -> Result<(), String> { db::save_category(&app, category) }
@@ -45,11 +47,12 @@ fn mark_used(app: tauri::AppHandle, id: String) -> Result<(), String> { db::mark
 fn import_snapshot(app: tauri::AppHandle, snapshot: db::Snapshot) -> Result<(), String> { db::import(&app, snapshot) }
 
 #[tauri::command]
-fn run_in_terminal(app: tauri::AppHandle, command: String) -> Result<(), String> {
+fn run_in_terminal(app: tauri::AppHandle, id: String) -> Result<(), String> {
     let snapshot = db::load(&app)?;
     if !snapshot.settings.show_run { return Err("Run is disabled in settings".into()); }
-    if !snapshot.commands.iter().any(|item| item.command == command) { return Err("Command is not saved in Nav Toolbox".into()); }
-    if command.trim().is_empty() || command.contains('\0') { return Err("Invalid command".into()); }
+    let item = snapshot.commands.iter().find(|item| item.id == id && item.is_enabled).ok_or("Enabled command not found")?;
+    let command = &item.command;
+    if command.trim().is_empty() || command.contains('\0') || (command.contains('<') && command.contains('>')) || command.contains("\"\"") { return Err("Edit command placeholders before running".into()); }
     let script = format!("{command}; printf '\\n[Nav Toolbox] Command finished.\\n'; exec bash");
     let terminals = ["gnome-terminal", "kgx", "konsole", "xfce4-terminal", "x-terminal-emulator"];
     for terminal in terminals {
@@ -108,7 +111,7 @@ pub fn run() {
                 if let tauri::WindowEvent::CloseRequested { api, .. } = event { api.prevent_close(); let _ = window.hide(); }
             }
         })
-        .invoke_handler(tauri::generate_handler![show_popup, hide_popup, toggle_popup, show_main, load_snapshot, save_command, delete_command, save_category, save_settings, mark_used, import_snapshot, run_in_terminal])
+        .invoke_handler(tauri::generate_handler![show_popup, hide_popup, toggle_popup, show_main, load_snapshot, save_command, set_category_enabled, delete_command, save_category, save_settings, mark_used, import_snapshot, run_in_terminal])
         .run(tauri::generate_context!())
         .expect("error while running Nav Toolbox");
 }

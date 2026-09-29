@@ -1,22 +1,41 @@
 # Nav Toolbox
 
-Nav Toolbox is a Fedora/Linux desktop command library. It has a compact launcher for quick copying and a full window for organizing commands. The interface uses pale blue glass in light mode and navy glass in dark mode.
+Nav Toolbox is a Linux desktop command library with a compact launcher and a full manager. It uses pale blue glass in light mode and navy glass in dark mode.
 
-## Current features
+![Full manager in light mode](docs/screenshots/manager-light.png)
 
-- Tauri v2 desktop windows, system tray menu, and global shortcut (default `Ctrl+Space`)
-- SQLite storage in the app data directory, with seeded developer commands and categories
-- Fuzzy search by title, command, description, tags, and category
-- Favorites, recent commands, editing, new commands, new categories, and JSON backup
-- Clipboard copy as the primary action; optional Run in a terminal, off by default
-- Light, dark, and system themes; autostart; close popup after copy
-- Keyboard: `Ctrl+K` focuses search, arrows select search results, `Enter` copies the selected command, `I` opens details, `Alt+1` through `Alt+7` copy launcher rows, `Esc` closes overlays
+## Features
 
-The browser preview stores changes in local storage. The packaged desktop app uses SQLite. No account or network connection is needed to use the packaged app; fonts are bundled locally.
+- Tauri v2 desktop windows, tray menu, and configurable global shortcut (default `Ctrl+Space`)
+- SQLite storage, fuzzy search, favorites, recent commands, categories, and JSON backup
+- 163 bundled commands across 26 categories, with individual and category visibility controls
+- Clipboard copy as the primary action; optional terminal Run, disabled by default
+- Light, dark, and system themes; optional autostart and close after copy
+- Full manager with category sidebar, command list, details, editing, and settings
+- Keyboard: `Ctrl+K` focuses search, arrows select, `Enter` copies, `I` opens details, `Alt+1`–`Alt+7` copy launcher rows, and `Esc` closes overlays
+
+The first 24 commands appear by default. The other 139 start hidden. Open **Command Library** in the manager to enable individual commands or whole categories for your system. Commands containing `<placeholder>` must be edited before Run.
+
+The desktop app works locally without an account or Nav Toolbox server. Fonts are bundled. The browser preview stores data in browser local storage; the desktop app uses SQLite.
+
+## Install status and Linux compatibility
+
+This repository is source code. Cloning it or running the browser preview does **not** install Nav Toolbox in Fedora. Install a built RPM or Deb package, or run an AppImage directly. The project is configured for RPM, Deb, and AppImage, but native packages have **not yet been built or tested in this workspace**.
+
+After building, use the actual generated filename from `src-tauri/target/release/bundle/`:
+
+```bash
+sudo dnf install ./Nav_Toolbox*.rpm      # Fedora and RPM-based systems
+sudo apt install ./Nav_Toolbox*.deb      # Debian and Ubuntu
+chmod +x Nav_Toolbox*.AppImage           # Portable AppImage
+./Nav_Toolbox*.AppImage
+```
+
+The AppImage is intended for other desktop Linux distributions. Build it on an older supported Linux baseline to improve glibc compatibility, as described in [Tauri's AppImage guide](https://v2.tauri.app/distribute/appimage/). Tray display and shortcut registration can vary by desktop environment.
 
 ## Fedora development setup
 
-Install Node.js 20.19+ or 22.12+, Rust, and the Tauri Linux libraries. The Fedora dependency names below follow the [Tauri prerequisites guide](https://v2.tauri.app/start/prerequisites/):
+Install Node.js 20.19+ or 22.12+, Rust, and the [Tauri Linux prerequisites](https://v2.tauri.app/start/prerequisites/):
 
 ```bash
 sudo dnf install webkit2gtk4.1-devel openssl-devel curl wget file libappindicator-gtk3-devel librsvg2-devel libxdo-devel
@@ -27,59 +46,60 @@ Install Rust with [rustup](https://rustup.rs/) and restart your shell. Then:
 
 ```bash
 cd nav-toolbox
-npm install
+npm ci
 npm run desktop:dev
 ```
 
-To preview only the React interface in a browser:
+For a browser-only UI preview, Rust and WebKitGTK are unnecessary:
 
 ```bash
+npm ci
 npm run dev
 ```
 
-Open `http://127.0.0.1:1420/` for the manager and `http://127.0.0.1:1420/?view=popup` for the launcher. Browser preview does not provide a real tray, global shortcut, or native command execution.
-
-## Build and package
+Open `http://127.0.0.1:1420/` for the manager or `http://127.0.0.1:1420/?view=popup` for the launcher on the PC. For a phone connected through SSH, keep Vite running in one session and set up a **local** port forward in another session:
 
 ```bash
+ssh -N -L 1420:127.0.0.1:1420 user@your-pc
+```
+
+Open `http://127.0.0.1:1420/` in the phone's browser while that SSH session stays connected. A phone SSH app may offer the same setting as **Local port forwarding**. Without forwarding, `127.0.0.1` refers to the phone itself. The browser preview cannot test the tray, global shortcut, SQLite, or native Run action.
+
+## Build and verify
+
+```bash
+npm run check:catalog
+npm run format:check
 npm run build
 npm run desktop:build
 ```
 
-The Tauri configuration targets AppImage and RPM. Output goes to `src-tauri/target/release/bundle/appimage/` and `src-tauri/target/release/bundle/rpm/`. The RPM provides the Fedora application launcher entry. You can also build one format at a time:
+Build one package format with `npm run tauri build -- --bundles rpm`, `--bundles deb`, or `--bundles appimage`. After pushing the repository, the manual **Linux packages** GitHub Actions workflow can build downloadable RPM, Deb, and AppImage artifacts on Ubuntu 22.04. Review and test those packages before attaching them to a public release.
 
-```bash
-npm run tauri build -- --bundles rpm
-npm run tauri build -- --bundles appimage
-```
+The tray menu offers **Open Launcher**, **Open Manager**, **Settings**, and **Quit**. Linux tray click behavior depends on the desktop environment; the menu and global shortcut are the reliable entry points. The popup opens near the screen top. If `Ctrl+Space` is reserved by your desktop or input method, change the shortcut in Settings.
 
-## Tray behavior on Linux
+## Run and data safety
 
-The tray menu contains **Open Launcher**, **Open Manager**, **Settings**, and **Quit**. Tauri does not emit its tray click event on Linux, so opening the launcher from the menu or global shortcut is the dependable path. The popup is centered near the top of the screen because desktop environments do not expose a consistent panel anchor to Tauri. `Ctrl+Space` may already be assigned by an input method or desktop environment; change it in Settings if registration fails.
+Run is off initially. Each Run asks for confirmation. Commands matching `sudo`, `rm`, `dd`, `mkfs`, `chmod`, `chown`, and related utilities receive an extra warning. The Rust backend resolves a saved, enabled command by ID and rejects template placeholders. Run starts a visible terminal with the user's privileges. Supported terminals are GNOME Terminal, Console (`kgx`), Konsole, Xfce Terminal, and `x-terminal-emulator`.
 
-## Run behavior
-
-Run is disabled initially. Enabling it adds Run controls and requires confirmation for every command. Commands matching `sudo`, `rm`, `dd`, `mkfs`, `chmod`, `chown`, and similar system utilities get an extra warning in the confirmation text. The Rust backend accepts only saved commands while Run is enabled. Run opens a supported terminal (`gnome-terminal`, `kgx`, `konsole`, `xfce4-terminal`, or `x-terminal-emulator`) and executes the command there. The command still runs with the user's normal privileges and any terminal prompt remains visible.
-
-## Data and backups
-
-SQLite is created under Tauri's per-app data directory as `nav-toolbox.db`. The database has `commands`, `categories`, `related_commands`, and `settings` tables. Export JSON in Settings before major changes. Import replaces the current command catalog and settings after confirmation.
+Import checks backup structure and limits JSON to 5 MB, then replaces the current catalog and settings after confirmation. Run and autostart stay off after import until explicitly enabled again. Backups can contain hostnames, paths, and secrets entered by the user, so keep them private. SQLite lives under Tauri's per-app data directory as `nav-toolbox.db`.
 
 ## Project layout
 
 ```text
-src/App.tsx             React manager and launcher UI
-src/styles.css          light and dark glass themes
-src/lib/data.ts         native and browser-preview data adapter
-src/lib/native.ts       clipboard, shortcut, autostart, dialogs
-src/data/seed.json      initial categories and commands
-src-tauri/src/db.rs     SQLite schema and persistence
-src-tauri/src/lib.rs    tray, windows, native commands, terminal launch
-src-tauri/icons/        app and tray icon assets
+src/App.tsx                  manager and launcher UI
+src/styles.css               light and dark themes
+src/lib/data.ts              native and browser data adapter
+src/lib/native.ts            clipboard, shortcuts, autostart, dialogs
+src/data/seed.json           initial visible commands
+src/data/catalog-v2.json     optional command packs
+src-tauri/src/db.rs          SQLite schema and persistence
+src-tauri/src/lib.rs         tray, windows, native actions
+src-tauri/icons/             app icon assets
 ```
 
 ## Verification status
 
-`npm run build` passes and both layouts were inspected in Chrome. A native build could not be run in the initial project environment because Cargo/Rust and WebKitGTK development libraries were not installed there. Run `npm run desktop:dev` after completing the Fedora setup above to verify the tray and native integrations on your desktop.
+The frontend build, formatting, and catalog validation pass here. A native build cannot be run in this workspace because Rust/Cargo and WebKitGTK development libraries are absent. CI checks the frontend, dependency audit, and Rust compile on Ubuntu; it is not a substitute for running the packaged app on Fedora and other target desktops. Browser preview screenshots are in [`docs/screenshots/`](docs/screenshots/).
 
-Browser preview screenshots are in [`docs/screenshots/`](docs/screenshots/).
+Nav Toolbox uses the [MIT license](LICENSE). See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).

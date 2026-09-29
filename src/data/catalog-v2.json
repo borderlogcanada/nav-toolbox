@@ -1,0 +1,2007 @@
+{
+  "version": 2,
+  "categories": [
+    {
+      "id": "debian",
+      "name": "Debian / Ubuntu",
+      "icon": "server",
+      "color": "#d87058"
+    },
+    {
+      "id": "arch",
+      "name": "Arch Linux",
+      "icon": "triangle",
+      "color": "#32a6d8"
+    },
+    {
+      "id": "opensuse",
+      "name": "openSUSE",
+      "icon": "server",
+      "color": "#65ac42"
+    },
+    {
+      "id": "podman",
+      "name": "Podman",
+      "icon": "container",
+      "color": "#8b65bc"
+    },
+    {
+      "id": "flatpak",
+      "name": "Flatpak",
+      "icon": "box",
+      "color": "#419bd8"
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "icon": "network",
+      "color": "#4169e1"
+    },
+    {
+      "id": "processes",
+      "name": "Processes",
+      "icon": "activity",
+      "color": "#7887a3"
+    },
+    {
+      "id": "firewall",
+      "name": "Firewall",
+      "icon": "shield",
+      "color": "#e48c54"
+    },
+    {
+      "id": "shell",
+      "name": "Shell",
+      "icon": "terminal",
+      "color": "#6b7991"
+    }
+  ],
+  "commands": [
+    {
+      "id": "docker-compose-ps",
+      "title": "docker compose ps",
+      "command": "docker compose ps",
+      "descriptionShort": "List Compose containers",
+      "descriptionLong": "Shows status and exposed ports for containers in the current Compose project.",
+      "categoryId": "docker",
+      "tags": [
+        "docker"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "docker-compose-config",
+      "title": "docker compose config",
+      "command": "docker compose config",
+      "descriptionShort": "Validate Compose configuration",
+      "descriptionLong": "Renders and validates the effective Compose configuration.",
+      "categoryId": "docker",
+      "tags": [
+        "docker"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "docker-compose-pull",
+      "title": "docker compose pull",
+      "command": "docker compose pull",
+      "descriptionShort": "Pull service images",
+      "descriptionLong": "Downloads images referenced by the current Compose project.",
+      "categoryId": "docker",
+      "tags": [
+        "docker"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "docker-compose-restart",
+      "title": "docker compose restart",
+      "command": "docker compose restart",
+      "descriptionShort": "Restart Compose services",
+      "descriptionLong": "Restarts running services without recreating their containers.",
+      "categoryId": "docker",
+      "tags": [
+        "docker"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "docker-compose-ls",
+      "title": "docker compose ls",
+      "command": "docker compose ls",
+      "descriptionShort": "List Compose projects",
+      "descriptionLong": "Lists running Compose projects on this Docker host.",
+      "categoryId": "docker",
+      "tags": [
+        "docker"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "docker-images",
+      "title": "docker images",
+      "command": "docker images",
+      "descriptionShort": "List local images",
+      "descriptionLong": "Shows container images available on this host.",
+      "categoryId": "docker",
+      "tags": [
+        "docker"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "docker-volumes",
+      "title": "docker volume ls",
+      "command": "docker volume ls",
+      "descriptionShort": "List Docker volumes",
+      "descriptionLong": "Shows Docker-managed volumes.",
+      "categoryId": "docker",
+      "tags": [
+        "docker"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "docker-networks",
+      "title": "docker network ls",
+      "command": "docker network ls",
+      "descriptionShort": "List Docker networks",
+      "descriptionLong": "Shows Docker-managed networks.",
+      "categoryId": "docker",
+      "tags": [
+        "docker"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "docker-stats",
+      "title": "docker stats --no-stream",
+      "command": "docker stats --no-stream",
+      "descriptionShort": "Snapshot container resource use",
+      "descriptionLong": "Shows one CPU and memory usage sample for running containers.",
+      "categoryId": "docker",
+      "tags": [
+        "docker"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "docker-system-df",
+      "title": "docker system df",
+      "command": "docker system df",
+      "descriptionShort": "Show Docker disk usage",
+      "descriptionLong": "Summarizes space used by images, containers, and local volumes.",
+      "categoryId": "docker",
+      "tags": [
+        "docker"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "docker-inspect",
+      "title": "docker inspect <container>",
+      "command": "docker inspect <container>",
+      "descriptionShort": "Inspect a container",
+      "descriptionLong": "Replace <container> with a name or ID to show its detailed metadata.",
+      "categoryId": "docker",
+      "tags": [
+        "docker"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "docker-container-logs",
+      "title": "docker logs <container>",
+      "command": "docker logs <container>",
+      "descriptionShort": "Read container logs",
+      "descriptionLong": "Replace <container> with a name or ID to view its output.",
+      "categoryId": "docker",
+      "tags": [
+        "docker"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-diff",
+      "title": "git diff",
+      "command": "git diff",
+      "descriptionShort": "Review unstaged changes",
+      "descriptionLong": "Shows edits in tracked files that are not staged.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-diff-staged",
+      "title": "git diff --staged",
+      "command": "git diff --staged",
+      "descriptionShort": "Review staged changes",
+      "descriptionLong": "Shows changes staged for the next commit.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-status-short",
+      "title": "git status --short",
+      "command": "git status --short",
+      "descriptionShort": "Compact working tree status",
+      "descriptionLong": "Shows a short list of staged, modified, and untracked files.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-log",
+      "title": "git log --oneline -10",
+      "command": "git log --oneline -10",
+      "descriptionShort": "Recent commits",
+      "descriptionLong": "Lists the ten latest commits in compact form.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-branch",
+      "title": "git branch -a",
+      "command": "git branch -a",
+      "descriptionShort": "List branches",
+      "descriptionLong": "Shows local and remote-tracking branches.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-remotes",
+      "title": "git remote -v",
+      "command": "git remote -v",
+      "descriptionShort": "Show remotes",
+      "descriptionLong": "Lists remote names and their fetch and push URLs.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-fetch",
+      "title": "git fetch --all --prune",
+      "command": "git fetch --all --prune",
+      "descriptionShort": "Refresh remote references",
+      "descriptionLong": "Fetches from remotes and removes stale remote-tracking references.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-stash-list",
+      "title": "git stash list",
+      "command": "git stash list",
+      "descriptionShort": "List stashes",
+      "descriptionLong": "Shows saved working tree snapshots.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-stash-push",
+      "title": "git stash push -m \"<message>\"",
+      "command": "git stash push -m \"<message>\"",
+      "descriptionShort": "Save work in a stash",
+      "descriptionLong": "Replace <message> before running to label the stash.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-stash-pop",
+      "title": "git stash pop",
+      "command": "git stash pop",
+      "descriptionShort": "Restore latest stash",
+      "descriptionLong": "Applies and removes the most recent stash. Review for conflicts.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-switch",
+      "title": "git switch <branch>",
+      "command": "git switch <branch>",
+      "descriptionShort": "Switch branches",
+      "descriptionLong": "Replace <branch> with the target branch name.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-restore",
+      "title": "git restore <file>",
+      "command": "git restore <file>",
+      "descriptionShort": "Discard a file change",
+      "descriptionLong": "Replace <file> with a path. This discards unstaged edits in that file.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-root",
+      "title": "git rev-parse --show-toplevel",
+      "command": "git rev-parse --show-toplevel",
+      "descriptionShort": "Find repository root",
+      "descriptionLong": "Prints the current repository root directory.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-show-stat",
+      "title": "git show --stat",
+      "command": "git show --stat",
+      "descriptionShort": "Summarize latest commit",
+      "descriptionLong": "Shows the latest commit and a per-file change summary.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "git-tags",
+      "title": "git tag --list",
+      "command": "git tag --list",
+      "descriptionShort": "List tags",
+      "descriptionLong": "Lists tags in the current repository.",
+      "categoryId": "git",
+      "tags": [
+        "git"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "ssh-version",
+      "title": "ssh -V",
+      "command": "ssh -V",
+      "descriptionShort": "Show OpenSSH version",
+      "descriptionLong": "Prints the installed OpenSSH client version.",
+      "categoryId": "ssh",
+      "tags": [
+        "ssh"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "ssh-agent-keys",
+      "title": "ssh-add -l",
+      "command": "ssh-add -l",
+      "descriptionShort": "List loaded SSH keys",
+      "descriptionLong": "Shows public key fingerprints loaded into the SSH agent.",
+      "categoryId": "ssh",
+      "tags": [
+        "ssh"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "ssh-host-config",
+      "title": "ssh -G <host>",
+      "command": "ssh -G <host>",
+      "descriptionShort": "Inspect SSH host settings",
+      "descriptionLong": "Replace <host> to print the effective SSH configuration for that host.",
+      "categoryId": "ssh",
+      "tags": [
+        "ssh"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "ssh-connect",
+      "title": "ssh <host>",
+      "command": "ssh <host>",
+      "descriptionShort": "Connect to an SSH host",
+      "descriptionLong": "Replace <host> with a configured alias or hostname.",
+      "categoryId": "ssh",
+      "tags": [
+        "ssh"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "ssh-copy",
+      "title": "scp <source> <user>@<host>:<path>",
+      "command": "scp <source> <user>@<host>:<path>",
+      "descriptionShort": "Copy a file over SSH",
+      "descriptionLong": "Replace every placeholder before copying a local file to a remote host.",
+      "categoryId": "ssh",
+      "tags": [
+        "ssh"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "ssh-rsync",
+      "title": "rsync -avh --progress <source> <destination>",
+      "command": "rsync -avh --progress <source> <destination>",
+      "descriptionShort": "Sync files with progress",
+      "descriptionLong": "Replace the paths before synchronizing files. Review the destination first.",
+      "categoryId": "ssh",
+      "tags": [
+        "ssh"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "fedora-updates",
+      "title": "dnf check-update",
+      "command": "dnf check-update",
+      "descriptionShort": "Check available updates",
+      "descriptionLong": "Lists available Fedora package updates without installing them.",
+      "categoryId": "fedora",
+      "tags": [
+        "fedora"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "fedora-installed",
+      "title": "dnf list installed",
+      "command": "dnf list installed",
+      "descriptionShort": "List installed RPM packages",
+      "descriptionLong": "Lists packages installed through DNF.",
+      "categoryId": "fedora",
+      "tags": [
+        "fedora"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "fedora-history",
+      "title": "dnf history",
+      "command": "dnf history",
+      "descriptionShort": "Review package transactions",
+      "descriptionLong": "Shows recent DNF install, update, and remove transactions.",
+      "categoryId": "fedora",
+      "tags": [
+        "fedora"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "fedora-repos",
+      "title": "dnf repolist",
+      "command": "dnf repolist",
+      "descriptionShort": "List enabled repositories",
+      "descriptionLong": "Shows DNF repositories available to this system.",
+      "categoryId": "fedora",
+      "tags": [
+        "fedora"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "fedora-package-info",
+      "title": "dnf info <package>",
+      "command": "dnf info <package>",
+      "descriptionShort": "Inspect a package",
+      "descriptionLong": "Replace <package> to see version and repository details.",
+      "categoryId": "fedora",
+      "tags": [
+        "fedora"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "fedora-rpm-installed",
+      "title": "rpm -qa",
+      "command": "rpm -qa",
+      "descriptionShort": "List all installed RPMs",
+      "descriptionLong": "Lists RPM package names installed on the system.",
+      "categoryId": "fedora",
+      "tags": [
+        "fedora"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "fedora-rpm-query",
+      "title": "rpm -q <package>",
+      "command": "rpm -q <package>",
+      "descriptionShort": "Query an installed RPM",
+      "descriptionLong": "Replace <package> to check its installed version.",
+      "categoryId": "fedora",
+      "tags": [
+        "fedora"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "fedora-dnf-autoremove",
+      "title": "sudo dnf autoremove",
+      "command": "sudo dnf autoremove",
+      "descriptionShort": "Remove unused dependencies",
+      "descriptionLong": "Removes packages DNF considers no longer required. Review the transaction first.",
+      "categoryId": "fedora",
+      "tags": [
+        "fedora"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "debian-apt-update",
+      "title": "sudo apt update",
+      "command": "sudo apt update",
+      "descriptionShort": "Refresh package metadata",
+      "descriptionLong": "Downloads current package indexes from configured repositories.",
+      "categoryId": "debian",
+      "tags": [
+        "debian"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "debian-apt-upgradable",
+      "title": "apt list --upgradable",
+      "command": "apt list --upgradable",
+      "descriptionShort": "List available upgrades",
+      "descriptionLong": "Shows installed packages with available newer versions.",
+      "categoryId": "debian",
+      "tags": [
+        "debian"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "debian-apt-policy",
+      "title": "apt-cache policy <package>",
+      "command": "apt-cache policy <package>",
+      "descriptionShort": "Inspect package versions",
+      "descriptionLong": "Replace <package> to see installed and candidate versions.",
+      "categoryId": "debian",
+      "tags": [
+        "debian"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "debian-dpkg-list",
+      "title": "dpkg -l",
+      "command": "dpkg -l",
+      "descriptionShort": "List installed Debian packages",
+      "descriptionLong": "Shows packages known to dpkg.",
+      "categoryId": "debian",
+      "tags": [
+        "debian"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "debian-apt-upgrade",
+      "title": "sudo apt upgrade",
+      "command": "sudo apt upgrade",
+      "descriptionShort": "Upgrade installed packages",
+      "descriptionLong": "Installs available upgrades after an APT review prompt.",
+      "categoryId": "debian",
+      "tags": [
+        "debian"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "arch-pacman-installed",
+      "title": "pacman -Q",
+      "command": "pacman -Q",
+      "descriptionShort": "List installed packages",
+      "descriptionLong": "Shows packages installed through pacman.",
+      "categoryId": "arch",
+      "tags": [
+        "arch"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "arch-pacman-updates",
+      "title": "pacman -Qu",
+      "command": "pacman -Qu",
+      "descriptionShort": "List available updates",
+      "descriptionLong": "Shows package upgrades available from synced repositories.",
+      "categoryId": "arch",
+      "tags": [
+        "arch"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "arch-pacman-search",
+      "title": "pacman -Ss <package>",
+      "command": "pacman -Ss <package>",
+      "descriptionShort": "Search repositories",
+      "descriptionLong": "Replace <package> with a search term.",
+      "categoryId": "arch",
+      "tags": [
+        "arch"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "arch-pacman-info",
+      "title": "pacman -Si <package>",
+      "command": "pacman -Si <package>",
+      "descriptionShort": "Inspect package metadata",
+      "descriptionLong": "Replace <package> to see repository package details.",
+      "categoryId": "arch",
+      "tags": [
+        "arch"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "arch-pacman-upgrade",
+      "title": "sudo pacman -Syu",
+      "command": "sudo pacman -Syu",
+      "descriptionShort": "Sync and upgrade",
+      "descriptionLong": "Refreshes databases and upgrades the Arch system after review.",
+      "categoryId": "arch",
+      "tags": [
+        "arch"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "opensuse-updates",
+      "title": "zypper list-updates",
+      "command": "zypper list-updates",
+      "descriptionShort": "List available updates",
+      "descriptionLong": "Shows available openSUSE package updates.",
+      "categoryId": "opensuse",
+      "tags": [
+        "opensuse"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "opensuse-search",
+      "title": "zypper search <package>",
+      "command": "zypper search <package>",
+      "descriptionShort": "Search packages",
+      "descriptionLong": "Replace <package> with a package name or keyword.",
+      "categoryId": "opensuse",
+      "tags": [
+        "opensuse"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "opensuse-info",
+      "title": "zypper info <package>",
+      "command": "zypper info <package>",
+      "descriptionShort": "Inspect a package",
+      "descriptionLong": "Replace <package> to see package metadata.",
+      "categoryId": "opensuse",
+      "tags": [
+        "opensuse"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "opensuse-refresh",
+      "title": "sudo zypper refresh",
+      "command": "sudo zypper refresh",
+      "descriptionShort": "Refresh repositories",
+      "descriptionLong": "Downloads current repository metadata.",
+      "categoryId": "opensuse",
+      "tags": [
+        "opensuse"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "opensuse-upgrade",
+      "title": "sudo zypper update",
+      "command": "sudo zypper update",
+      "descriptionShort": "Install package updates",
+      "descriptionLong": "Updates installed packages after showing a transaction summary.",
+      "categoryId": "opensuse",
+      "tags": [
+        "opensuse"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "btrfs-version",
+      "title": "btrfs version",
+      "command": "btrfs version",
+      "descriptionShort": "Show Btrfs tools version",
+      "descriptionLong": "Prints the installed Btrfs userspace utility version.",
+      "categoryId": "btrfs",
+      "tags": [
+        "btrfs"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "btrfs-filesystem-show",
+      "title": "sudo btrfs filesystem show",
+      "command": "sudo btrfs filesystem show",
+      "descriptionShort": "List Btrfs filesystems",
+      "descriptionLong": "Lists detected Btrfs filesystems and devices.",
+      "categoryId": "btrfs",
+      "tags": [
+        "btrfs"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "btrfs-usage",
+      "title": "sudo btrfs filesystem usage /",
+      "command": "sudo btrfs filesystem usage /",
+      "descriptionShort": "Inspect root filesystem usage",
+      "descriptionLong": "Shows data, metadata, and device usage for the root Btrfs filesystem.",
+      "categoryId": "btrfs",
+      "tags": [
+        "btrfs"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "btrfs-subvolumes",
+      "title": "sudo btrfs subvolume list /",
+      "command": "sudo btrfs subvolume list /",
+      "descriptionShort": "List root subvolumes",
+      "descriptionLong": "Lists Btrfs subvolumes under the root mount.",
+      "categoryId": "btrfs",
+      "tags": [
+        "btrfs"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "btrfs-scrub-status",
+      "title": "sudo btrfs scrub status /",
+      "command": "sudo btrfs scrub status /",
+      "descriptionShort": "Check scrub status",
+      "descriptionLong": "Shows the status and result of a root filesystem scrub.",
+      "categoryId": "btrfs",
+      "tags": [
+        "btrfs"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "systemd-failed",
+      "title": "systemctl --failed",
+      "command": "systemctl --failed",
+      "descriptionShort": "List failed units",
+      "descriptionLong": "Shows services and other units in a failed state.",
+      "categoryId": "systemd",
+      "tags": [
+        "systemd"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "systemd-services",
+      "title": "systemctl list-units --type=service",
+      "command": "systemctl list-units --type=service",
+      "descriptionShort": "List active services",
+      "descriptionLong": "Shows loaded system services and their state.",
+      "categoryId": "systemd",
+      "tags": [
+        "systemd"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "systemd-status",
+      "title": "systemctl status <service>",
+      "command": "systemctl status <service>",
+      "descriptionShort": "Inspect a service",
+      "descriptionLong": "Replace <service> with a unit name to see status and recent logs.",
+      "categoryId": "systemd",
+      "tags": [
+        "systemd"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "systemd-enabled",
+      "title": "systemctl is-enabled <service>",
+      "command": "systemctl is-enabled <service>",
+      "descriptionShort": "Check startup setting",
+      "descriptionLong": "Replace <service> to see whether it starts automatically.",
+      "categoryId": "systemd",
+      "tags": [
+        "systemd"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "systemd-timers",
+      "title": "systemctl list-timers --all",
+      "command": "systemctl list-timers --all",
+      "descriptionShort": "List timers",
+      "descriptionLong": "Shows active and inactive systemd timers.",
+      "categoryId": "systemd",
+      "tags": [
+        "systemd"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "systemd-user-services",
+      "title": "systemctl --user list-units --type=service",
+      "command": "systemctl --user list-units --type=service",
+      "descriptionShort": "List user services",
+      "descriptionLong": "Shows systemd services in the current user session.",
+      "categoryId": "systemd",
+      "tags": [
+        "systemd"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "systemd-boot-time",
+      "title": "systemd-analyze blame",
+      "command": "systemd-analyze blame",
+      "descriptionShort": "Inspect boot time",
+      "descriptionLong": "Lists units by initialization time.",
+      "categoryId": "systemd",
+      "tags": [
+        "systemd"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "networking-ip-address",
+      "title": "ip -brief address",
+      "command": "ip -brief address",
+      "descriptionShort": "Show network addresses",
+      "descriptionLong": "Shows interfaces and assigned IP addresses in compact form.",
+      "categoryId": "networking",
+      "tags": [
+        "networking"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "networking-ip-route",
+      "title": "ip route",
+      "command": "ip route",
+      "descriptionShort": "Show routes",
+      "descriptionLong": "Displays the kernel IP routing table.",
+      "categoryId": "networking",
+      "tags": [
+        "networking"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "networking-listening",
+      "title": "ss -tulpn",
+      "command": "ss -tulpn",
+      "descriptionShort": "Show listening sockets",
+      "descriptionLong": "Lists listening TCP and UDP sockets with process names when permitted.",
+      "categoryId": "networking",
+      "tags": [
+        "networking"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "networking-ping",
+      "title": "ping -c 4 1.1.1.1",
+      "command": "ping -c 4 1.1.1.1",
+      "descriptionShort": "Test IP connectivity",
+      "descriptionLong": "Sends four ICMP packets to a public IP address.",
+      "categoryId": "networking",
+      "tags": [
+        "networking"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "networking-dns",
+      "title": "getent hosts example.com",
+      "command": "getent hosts example.com",
+      "descriptionShort": "Test name resolution",
+      "descriptionLong": "Asks the system resolver for addresses of example.com.",
+      "categoryId": "networking",
+      "tags": [
+        "networking"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "networking-resolvers",
+      "title": "resolvectl status",
+      "command": "resolvectl status",
+      "descriptionShort": "Inspect DNS resolvers",
+      "descriptionLong": "Shows per-link DNS settings on systemd-resolved systems.",
+      "categoryId": "networking",
+      "tags": [
+        "networking"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "networking-nm-devices",
+      "title": "nmcli device status",
+      "command": "nmcli device status",
+      "descriptionShort": "Show NetworkManager devices",
+      "descriptionLong": "Shows network device connectivity and state.",
+      "categoryId": "networking",
+      "tags": [
+        "networking"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "networking-hostname-ip",
+      "title": "hostname -I",
+      "command": "hostname -I",
+      "descriptionShort": "Show local IP addresses",
+      "descriptionLong": "Prints addresses assigned to this host.",
+      "categoryId": "networking",
+      "tags": [
+        "networking"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "disk-block-fs",
+      "title": "lsblk -f",
+      "command": "lsblk -f",
+      "descriptionShort": "List disks and filesystems",
+      "descriptionLong": "Shows block devices, filesystem types, labels, and mount points.",
+      "categoryId": "disk",
+      "tags": [
+        "disk"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "disk-directory-size",
+      "title": "du -sh .",
+      "command": "du -sh .",
+      "descriptionShort": "Size current directory",
+      "descriptionLong": "Summarizes the disk space used by the current directory.",
+      "categoryId": "disk",
+      "tags": [
+        "disk"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "disk-mounts",
+      "title": "findmnt",
+      "command": "findmnt",
+      "descriptionShort": "List mounted filesystems",
+      "descriptionLong": "Shows the mount tree and filesystem sources.",
+      "categoryId": "disk",
+      "tags": [
+        "disk"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "disk-inodes",
+      "title": "df -i",
+      "command": "df -i",
+      "descriptionShort": "Check inode usage",
+      "descriptionLong": "Shows used and available filesystem inodes.",
+      "categoryId": "disk",
+      "tags": [
+        "disk"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "disk-smart",
+      "title": "sudo smartctl -a /dev/<device>",
+      "command": "sudo smartctl -a /dev/<device>",
+      "descriptionShort": "Read disk health",
+      "descriptionLong": "Replace <device> with the disk name. Requires smartmontools.",
+      "categoryId": "disk",
+      "tags": [
+        "disk"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "logs-boot-errors",
+      "title": "journalctl -b -p err",
+      "command": "journalctl -b -p err",
+      "descriptionShort": "Errors from this boot",
+      "descriptionLong": "Shows error-priority journal entries since the current boot.",
+      "categoryId": "logs",
+      "tags": [
+        "logs"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "logs-today",
+      "title": "journalctl --since today",
+      "command": "journalctl --since today",
+      "descriptionShort": "Journal entries from today",
+      "descriptionLong": "Shows system journal entries recorded today.",
+      "categoryId": "logs",
+      "tags": [
+        "logs"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "logs-service",
+      "title": "journalctl -u <service> -n 100",
+      "command": "journalctl -u <service> -n 100",
+      "descriptionShort": "Recent service logs",
+      "descriptionLong": "Replace <service> to see its latest 100 journal entries.",
+      "categoryId": "logs",
+      "tags": [
+        "logs"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "logs-disk-usage",
+      "title": "journalctl --disk-usage",
+      "command": "journalctl --disk-usage",
+      "descriptionShort": "Journal disk usage",
+      "descriptionLong": "Reports space currently used by journal files.",
+      "categoryId": "logs",
+      "tags": [
+        "logs"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "node-node-version",
+      "title": "node --version",
+      "command": "node --version",
+      "descriptionShort": "Show Node.js version",
+      "descriptionLong": "Prints the installed Node.js version.",
+      "categoryId": "node",
+      "tags": [
+        "node"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "node-npm-version",
+      "title": "npm --version",
+      "command": "npm --version",
+      "descriptionShort": "Show npm version",
+      "descriptionLong": "Prints the installed npm version.",
+      "categoryId": "node",
+      "tags": [
+        "node"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "node-npm-list",
+      "title": "npm list --depth=0",
+      "command": "npm list --depth=0",
+      "descriptionShort": "List project dependencies",
+      "descriptionLong": "Shows top-level dependencies in the current npm project.",
+      "categoryId": "node",
+      "tags": [
+        "node"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "node-npm-outdated",
+      "title": "npm outdated",
+      "command": "npm outdated",
+      "descriptionShort": "Find outdated dependencies",
+      "descriptionLong": "Compares installed package versions with available releases.",
+      "categoryId": "node",
+      "tags": [
+        "node"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "node-npm-scripts",
+      "title": "npm run",
+      "command": "npm run",
+      "descriptionShort": "List project scripts",
+      "descriptionLong": "Shows scripts defined in the current package.json.",
+      "categoryId": "node",
+      "tags": [
+        "node"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "node-pnpm-audit",
+      "title": "pnpm audit",
+      "command": "pnpm audit",
+      "descriptionShort": "Audit project dependencies",
+      "descriptionLong": "Checks the project dependency graph against known advisories.",
+      "categoryId": "node",
+      "tags": [
+        "node"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "nextjs-version",
+      "title": "npx next --version",
+      "command": "npx next --version",
+      "descriptionShort": "Show Next.js version",
+      "descriptionLong": "Prints the Next.js CLI version available to this project.",
+      "categoryId": "nextjs",
+      "tags": [
+        "nextjs"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "nextjs-dev",
+      "title": "npx next dev",
+      "command": "npx next dev",
+      "descriptionShort": "Start Next.js development",
+      "descriptionLong": "Runs the Next.js development server in the current project.",
+      "categoryId": "nextjs",
+      "tags": [
+        "nextjs"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "nextjs-build",
+      "title": "npx next build",
+      "command": "npx next build",
+      "descriptionShort": "Build Next.js project",
+      "descriptionLong": "Creates an optimized production build from the current project.",
+      "categoryId": "nextjs",
+      "tags": [
+        "nextjs"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "react-native-doctor",
+      "title": "npx react-native doctor",
+      "command": "npx react-native doctor",
+      "descriptionShort": "Check React Native setup",
+      "descriptionLong": "Checks local Android and iOS development prerequisites.",
+      "categoryId": "react-native",
+      "tags": [
+        "react-native"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "react-native-adb-devices",
+      "title": "adb devices",
+      "command": "adb devices",
+      "descriptionShort": "List Android devices",
+      "descriptionLong": "Shows Android devices visible to ADB.",
+      "categoryId": "react-native",
+      "tags": [
+        "react-native"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "react-native-adb-logcat",
+      "title": "adb logcat -s ReactNativeJS",
+      "command": "adb logcat -s ReactNativeJS",
+      "descriptionShort": "Follow JavaScript logs",
+      "descriptionLong": "Streams React Native JavaScript messages from a connected Android device.",
+      "categoryId": "react-native",
+      "tags": [
+        "react-native"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "react-native-metro",
+      "title": "npx react-native start",
+      "command": "npx react-native start",
+      "descriptionShort": "Start Metro",
+      "descriptionLong": "Starts the React Native Metro bundler.",
+      "categoryId": "react-native",
+      "tags": [
+        "react-native"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "expo-doctor",
+      "title": "npx expo doctor",
+      "command": "npx expo doctor",
+      "descriptionShort": "Check Expo project",
+      "descriptionLong": "Checks the project for common Expo configuration and dependency issues.",
+      "categoryId": "expo",
+      "tags": [
+        "expo"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "expo-clear",
+      "title": "npx expo start --clear",
+      "command": "npx expo start --clear",
+      "descriptionShort": "Start Expo with clean cache",
+      "descriptionLong": "Clears Metro cache and starts Expo development tools.",
+      "categoryId": "expo",
+      "tags": [
+        "expo"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "expo-export",
+      "title": "npx expo export",
+      "command": "npx expo export",
+      "descriptionShort": "Export Expo app",
+      "descriptionLong": "Creates a static export of the current Expo project.",
+      "categoryId": "expo",
+      "tags": [
+        "expo"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "supabase-status",
+      "title": "supabase status",
+      "command": "supabase status",
+      "descriptionShort": "Show local Supabase status",
+      "descriptionLong": "Shows running local Supabase services and connection details.",
+      "categoryId": "supabase",
+      "tags": [
+        "supabase"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "supabase-start",
+      "title": "supabase start",
+      "command": "supabase start",
+      "descriptionShort": "Start local Supabase",
+      "descriptionLong": "Starts the local Supabase development stack.",
+      "categoryId": "supabase",
+      "tags": [
+        "supabase"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "supabase-stop",
+      "title": "supabase stop",
+      "command": "supabase stop",
+      "descriptionShort": "Stop local Supabase",
+      "descriptionLong": "Stops the local development stack.",
+      "categoryId": "supabase",
+      "tags": [
+        "supabase"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "supabase-migrations",
+      "title": "supabase migration list",
+      "command": "supabase migration list",
+      "descriptionShort": "List migrations",
+      "descriptionLong": "Shows local and remote database migration status.",
+      "categoryId": "supabase",
+      "tags": [
+        "supabase"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "tailscale-ip",
+      "title": "tailscale ip -4",
+      "command": "tailscale ip -4",
+      "descriptionShort": "Show Tailscale IPv4",
+      "descriptionLong": "Prints this device’s Tailscale IPv4 address.",
+      "categoryId": "tailscale",
+      "tags": [
+        "tailscale"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "tailscale-version",
+      "title": "tailscale version",
+      "command": "tailscale version",
+      "descriptionShort": "Show Tailscale version",
+      "descriptionLong": "Prints installed client and daemon versions.",
+      "categoryId": "tailscale",
+      "tags": [
+        "tailscale"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "tailscale-netcheck",
+      "title": "tailscale netcheck",
+      "command": "tailscale netcheck",
+      "descriptionShort": "Check Tailscale connectivity",
+      "descriptionLong": "Reports NAT and relay connectivity diagnostics.",
+      "categoryId": "tailscale",
+      "tags": [
+        "tailscale"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "tailscale-peer-ping",
+      "title": "tailscale ping <peer>",
+      "command": "tailscale ping <peer>",
+      "descriptionShort": "Ping a tailnet peer",
+      "descriptionLong": "Replace <peer> with a peer hostname or Tailscale IP.",
+      "categoryId": "tailscale",
+      "tags": [
+        "tailscale"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "tailscale-json",
+      "title": "tailscale status --json",
+      "command": "tailscale status --json",
+      "descriptionShort": "Machine-readable peer status",
+      "descriptionLong": "Prints current tailnet peer state as JSON.",
+      "categoryId": "tailscale",
+      "tags": [
+        "tailscale"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "podman-ps",
+      "title": "podman ps",
+      "command": "podman ps",
+      "descriptionShort": "List running containers",
+      "descriptionLong": "Shows Podman containers currently running.",
+      "categoryId": "podman",
+      "tags": [
+        "podman"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "podman-ps-all",
+      "title": "podman ps -a",
+      "command": "podman ps -a",
+      "descriptionShort": "List all containers",
+      "descriptionLong": "Shows running and stopped Podman containers.",
+      "categoryId": "podman",
+      "tags": [
+        "podman"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "podman-images",
+      "title": "podman images",
+      "command": "podman images",
+      "descriptionShort": "List images",
+      "descriptionLong": "Shows local Podman images.",
+      "categoryId": "podman",
+      "tags": [
+        "podman"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "podman-pods",
+      "title": "podman pod ps",
+      "command": "podman pod ps",
+      "descriptionShort": "List pods",
+      "descriptionLong": "Shows Podman pods and their status.",
+      "categoryId": "podman",
+      "tags": [
+        "podman"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "podman-info",
+      "title": "podman info",
+      "command": "podman info",
+      "descriptionShort": "Inspect Podman setup",
+      "descriptionLong": "Shows host, store, and runtime information.",
+      "categoryId": "podman",
+      "tags": [
+        "podman"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "flatpak-list",
+      "title": "flatpak list",
+      "command": "flatpak list",
+      "descriptionShort": "List installed Flatpaks",
+      "descriptionLong": "Shows installed applications and runtimes.",
+      "categoryId": "flatpak",
+      "tags": [
+        "flatpak"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "flatpak-remotes",
+      "title": "flatpak remotes",
+      "command": "flatpak remotes",
+      "descriptionShort": "List Flatpak remotes",
+      "descriptionLong": "Shows configured Flatpak repositories.",
+      "categoryId": "flatpak",
+      "tags": [
+        "flatpak"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "flatpak-updates",
+      "title": "flatpak remote-ls --updates",
+      "command": "flatpak remote-ls --updates",
+      "descriptionShort": "Check Flatpak updates",
+      "descriptionLong": "Lists remote refs with available updates.",
+      "categoryId": "flatpak",
+      "tags": [
+        "flatpak"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "flatpak-update",
+      "title": "flatpak update",
+      "command": "flatpak update",
+      "descriptionShort": "Update Flatpaks",
+      "descriptionLong": "Downloads and applies Flatpak updates after review.",
+      "categoryId": "flatpak",
+      "tags": [
+        "flatpak"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "kubernetes-context",
+      "title": "kubectl config current-context",
+      "command": "kubectl config current-context",
+      "descriptionShort": "Show current Kubernetes context",
+      "descriptionLong": "Prints the cluster context kubectl will use.",
+      "categoryId": "kubernetes",
+      "tags": [
+        "kubernetes"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "kubernetes-contexts",
+      "title": "kubectl config get-contexts",
+      "command": "kubectl config get-contexts",
+      "descriptionShort": "List Kubernetes contexts",
+      "descriptionLong": "Shows configured cluster contexts and the active one.",
+      "categoryId": "kubernetes",
+      "tags": [
+        "kubernetes"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "kubernetes-nodes",
+      "title": "kubectl get nodes",
+      "command": "kubectl get nodes",
+      "descriptionShort": "List cluster nodes",
+      "descriptionLong": "Shows Kubernetes nodes in the selected context.",
+      "categoryId": "kubernetes",
+      "tags": [
+        "kubernetes"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "kubernetes-pods",
+      "title": "kubectl get pods --all-namespaces",
+      "command": "kubectl get pods --all-namespaces",
+      "descriptionShort": "List all pods",
+      "descriptionLong": "Shows pods across all namespaces in the selected cluster.",
+      "categoryId": "kubernetes",
+      "tags": [
+        "kubernetes"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "kubernetes-deployments",
+      "title": "kubectl get deployments",
+      "command": "kubectl get deployments",
+      "descriptionShort": "List deployments",
+      "descriptionLong": "Shows deployments in the current namespace.",
+      "categoryId": "kubernetes",
+      "tags": [
+        "kubernetes"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "kubernetes-pod-logs",
+      "title": "kubectl logs <pod>",
+      "command": "kubectl logs <pod>",
+      "descriptionShort": "Read pod logs",
+      "descriptionLong": "Replace <pod> with a pod name in the current namespace.",
+      "categoryId": "kubernetes",
+      "tags": [
+        "kubernetes"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "processes-uptime",
+      "title": "uptime",
+      "command": "uptime",
+      "descriptionShort": "Show uptime and load",
+      "descriptionLong": "Shows system uptime and load averages.",
+      "categoryId": "processes",
+      "tags": [
+        "processes"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "processes-top",
+      "title": "top",
+      "command": "top",
+      "descriptionShort": "Inspect running processes",
+      "descriptionLong": "Opens an interactive process and resource monitor.",
+      "categoryId": "processes",
+      "tags": [
+        "processes"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "processes-ps-memory",
+      "title": "ps aux --sort=-%mem",
+      "command": "ps aux --sort=-%mem",
+      "descriptionShort": "Sort processes by memory",
+      "descriptionLong": "Lists processes ordered by resident memory use.",
+      "categoryId": "processes",
+      "tags": [
+        "processes"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "processes-pgrep",
+      "title": "pgrep -a <name>",
+      "command": "pgrep -a <name>",
+      "descriptionShort": "Find a process",
+      "descriptionLong": "Replace <name> with a process name to see matching process IDs.",
+      "categoryId": "processes",
+      "tags": [
+        "processes"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "processes-lsof",
+      "title": "lsof -i -P -n",
+      "command": "lsof -i -P -n",
+      "descriptionShort": "List network file handles",
+      "descriptionLong": "Shows processes with open network sockets when lsof is installed.",
+      "categoryId": "processes",
+      "tags": [
+        "processes"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "shell-pwd",
+      "title": "pwd",
+      "command": "pwd",
+      "descriptionShort": "Show current directory",
+      "descriptionLong": "Prints the working directory of the terminal.",
+      "categoryId": "shell",
+      "tags": [
+        "shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "shell-files",
+      "title": "find . -maxdepth 2 -type f",
+      "command": "find . -maxdepth 2 -type f",
+      "descriptionShort": "Find nearby files",
+      "descriptionLong": "Lists regular files two directory levels below the current path.",
+      "categoryId": "shell",
+      "tags": [
+        "shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "shell-rg-files",
+      "title": "rg --files",
+      "command": "rg --files",
+      "descriptionShort": "List searchable files",
+      "descriptionLong": "Lists files visible to ripgrep in the current project.",
+      "categoryId": "shell",
+      "tags": [
+        "shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "shell-which",
+      "title": "command -v <program>",
+      "command": "command -v <program>",
+      "descriptionShort": "Locate a program",
+      "descriptionLong": "Replace <program> to see whether it is available on PATH.",
+      "categoryId": "shell",
+      "tags": [
+        "shell"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "firewall-ufw-status",
+      "title": "sudo ufw status verbose",
+      "command": "sudo ufw status verbose",
+      "descriptionShort": "Show UFW firewall status",
+      "descriptionLong": "Shows UFW policy and active rules on Ubuntu-based systems.",
+      "categoryId": "firewall",
+      "tags": [
+        "firewall"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "firewall-firewalld-state",
+      "title": "firewall-cmd --state",
+      "command": "firewall-cmd --state",
+      "descriptionShort": "Check firewalld service",
+      "descriptionLong": "Reports whether firewalld is running.",
+      "categoryId": "firewall",
+      "tags": [
+        "firewall"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "firewall-firewalld-active",
+      "title": "firewall-cmd --get-active-zones",
+      "command": "firewall-cmd --get-active-zones",
+      "descriptionShort": "Show active firewall zones",
+      "descriptionLong": "Lists zones currently assigned to network interfaces.",
+      "categoryId": "firewall",
+      "tags": [
+        "firewall"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "firewall-firewalld-rules",
+      "title": "firewall-cmd --list-all",
+      "command": "firewall-cmd --list-all",
+      "descriptionShort": "Show firewalld zone rules",
+      "descriptionLong": "Displays services, ports, and rules in the active default zone.",
+      "categoryId": "firewall",
+      "tags": [
+        "firewall"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    },
+    {
+      "id": "firewall-nft-rules",
+      "title": "sudo nft list ruleset",
+      "command": "sudo nft list ruleset",
+      "descriptionShort": "Show nftables rules",
+      "descriptionLong": "Prints the current nftables ruleset. Some systems require administrator privileges.",
+      "categoryId": "firewall",
+      "tags": [
+        "firewall"
+      ],
+      "isFavorite": false,
+      "isEnabled": false,
+      "introducedIn": 2
+    }
+  ]
+}
