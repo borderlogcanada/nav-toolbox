@@ -4,6 +4,15 @@ Nav Toolbox is a Linux desktop command library with a compact launcher and a ful
 
 ![Full manager in light mode](docs/screenshots/manager-light.png)
 
+<details>
+<summary>Dark theme, compact launcher, and phone preview</summary>
+
+![Full manager in dark mode](docs/screenshots/manager-dark.png)
+![Compact launcher](docs/screenshots/launcher-light.png)
+![Phone browser preview](docs/screenshots/manager-mobile.png)
+
+</details>
+
 ## Features
 
 - Tauri v2 desktop windows, tray menu, and configurable global shortcut (default `Ctrl+Space`)
@@ -20,15 +29,15 @@ The desktop app works locally without an account or Nav Toolbox server. Fonts ar
 
 ## Install status and Linux compatibility
 
-This repository is source code. Cloning it or running the browser preview does **not** install Nav Toolbox in Fedora. Install a built RPM or Deb package, or run an AppImage directly. The project is configured for RPM, Deb, and AppImage, but native packages have **not yet been built or tested in this workspace**.
+Cloning this repository or running the browser preview does **not** install Nav Toolbox. The first native RPM, Deb, and AppImage builds succeeded on Ubuntu 22.04 in [GitHub Actions](https://github.com/borderlogcanada/nav-toolbox/actions/runs/36602501921). Download the `nav-toolbox-linux-packages` artifact from that run and extract it (GitHub sign-in required). These initial x86_64 packages still need interactive testing on the target desktop; a successful build does not verify tray, shortcut, or terminal behavior.
 
-After building, use the actual generated filename from `src-tauri/target/release/bundle/`:
+From the extracted artifact directory, choose the command for your system:
 
 ```bash
-sudo dnf install ./Nav_Toolbox*.rpm      # Fedora and RPM-based systems
-sudo apt install ./Nav_Toolbox*.deb      # Debian and Ubuntu
-chmod +x Nav_Toolbox*.AppImage           # Portable AppImage
-./Nav_Toolbox*.AppImage
+sudo dnf install './rpm/Nav Toolbox-0.1.0-1.x86_64.rpm'
+sudo apt install './deb/Nav Toolbox_0.1.0_amd64.deb'
+chmod +x './appimage/Nav Toolbox_0.1.0_amd64.AppImage'
+'./appimage/Nav Toolbox_0.1.0_amd64.AppImage'
 ```
 
 The AppImage is intended for other desktop Linux distributions. Build it on an older supported Linux baseline to improve glibc compatibility, as described in [Tauri's AppImage guide](https://v2.tauri.app/distribute/appimage/). Tray display and shortcut registration can vary by desktop environment.
@@ -110,6 +119,6 @@ src-tauri/icons/             app icon assets
 
 ## Verification status
 
-The frontend build, formatting, and catalog validation pass here. A native build cannot be run in this workspace because Rust/Cargo and WebKitGTK development libraries are absent. CI checks the frontend, dependency audit, and Rust compile on Ubuntu; it is not a substitute for running the packaged app on Fedora and other target desktops. Browser preview screenshots are in [`docs/screenshots/`](docs/screenshots/).
+The frontend build, formatting, catalog validation, dependency audit, and Rust compile check passed in [CI](https://github.com/borderlogcanada/nav-toolbox/actions/runs/36602453502). The [Linux package build](https://github.com/borderlogcanada/nav-toolbox/actions/runs/36602501921) also succeeded and generated RPM, Deb, and AppImage packages. Interactive native testing on Fedora and other desktops remains outstanding. Screenshots in [`docs/screenshots/`](docs/screenshots/) show the browser preview.
 
 Nav Toolbox uses the [MIT license](LICENSE). See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
