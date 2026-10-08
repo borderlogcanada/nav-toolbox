@@ -46,6 +46,10 @@ export async function showMain() {
 }
 export async function hidePopup() {
   if (isTauri()) await invoke("hide_popup");
+  else window.location.href = "/";
+}
+export async function showSettings() {
+  if (isTauri()) await invoke("show_settings");
 }
 export async function runCommand(id: string) {
   if (isTauri()) await invoke("run_in_terminal", { id });

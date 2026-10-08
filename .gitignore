@@ -6,3 +6,7 @@ src-tauri/gen/schemas/
 *.tsbuildinfo
 .env*
 .superpowers/
+test-results/
+playwright-report/
+__pycache__/
+*.pyc

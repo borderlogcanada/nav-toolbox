@@ -7,11 +7,15 @@ Thanks for helping improve Nav Toolbox. Open an issue before a large change so c
 ```bash
 npm ci
 npm run check:catalog
+npm run check:migrations
+npm run test:launcher
+npx playwright install chromium
+npm run test:ui
 npm run build
 npm run format:check
 ```
 
-For native changes, install the [Tauri Linux prerequisites](https://v2.tauri.app/start/prerequisites/) and run `cargo check --manifest-path src-tauri/Cargo.toml`. Test tray, shortcut, import/export, and Run behavior on a Linux desktop session before proposing a release.
+For native changes, install the [Tauri Linux prerequisites](https://v2.tauri.app/start/prerequisites/) and run `cargo test --manifest-path src-tauri/Cargo.toml --lib --locked`. Test tray, shortcut, import/export, and Run behavior on a Linux desktop session before proposing a release.
 
 ## Command catalog
 
@@ -20,3 +24,5 @@ The current basics pack is `src/data/catalog-v3.json`. For future shipped catalo
 ## Pull requests
 
 Describe the user-facing change, the Linux distribution and desktop environment used for testing, and any limitations. Add screenshots for visible UI changes. Never include private backup files, credentials, database files, or local environment files.
+
+To probe an already running 0.1.1 app in a Fedora desktop session, `python3 scripts/check-native-tray.py` checks its StatusNotifier activation and X11 window geometry. This sends tray API activation events and does not verify a physical mouse click.

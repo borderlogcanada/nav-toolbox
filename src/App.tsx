@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Fuse from "fuse.js";
+import { getLauncherCommands } from "./lib/launcher";
 import {
   Activity,
   Atom,
@@ -66,6 +67,7 @@ import {
   setShortcut,
   showMain,
   showPopup,
+  showSettings,
 } from "./lib/native";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -129,7 +131,12 @@ function CategoryIcon({
   return (
     <span
       className="category-icon"
-      style={{ color: category?.color ?? "var(--accent)" }}
+      style={{
+        color:
+          category?.icon === "terminal"
+            ? "var(--text)"
+            : (category?.color ?? "var(--accent)"),
+      }}
     >
       <Icon size={size} strokeWidth={2.35} />
     </span>
@@ -146,6 +153,7 @@ export default function App() {
   const [tab, setTab] = useState<"details" | "examples" | "related">("details");
   const [editor, setEditor] = useState<Command | null>(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [categoryPickerOpen, setCategoryPickerOpen] = useState(false);
   const [newCategory, setNewCategory] = useState(false);
   const [contextMenu, setContextMenu] = useState<{
     x: number;
@@ -154,6 +162,7 @@ export default function App() {
   } | null>(null);
   const [toast, setToast] = useState("");
   const searchRef = useRef<HTMLInputElement>(null);
+  const popupListRef = useRef<HTMLDivElement>(null);
   const commands = snapshot?.commands ?? [];
   const categories = snapshot?.categories ?? [];
   const settings = snapshot?.settings ?? defaultSettings;
@@ -195,6 +204,32 @@ export default function App() {
     window.addEventListener("focus", sync);
     return () => window.removeEventListener("focus", sync);
   }, []);
+  useEffect(() => {
+    if (popup && snapshot) searchRef.current?.focus();
+  }, [popup, !!snapshot]);
+  useEffect(() => {
+    if (!popup) return;
+    if (!native) return;
+    let disposed = false;
+    let unlisten: (() => void) | undefined;
+    void listen("launcher-opened", () => {
+      setQuery("");
+      setActiveCategory("all");
+      setDetailsOpen(false);
+      setCategoryPickerOpen(false);
+      setContextMenu(null);
+      searchRef.current?.focus();
+    })
+      .then((stop) => {
+        if (disposed) stop();
+        else unlisten = stop;
+      })
+      .catch(report);
+    return () => {
+      disposed = true;
+      unlisten?.();
+    };
+  }, [popup]);
   useEffect(() => {
     if (!native || popup) return;
     let dispose: (() => void) | undefined;
@@ -251,7 +286,27 @@ export default function App() {
     }
     return list;
   }, [commands, enabledCommands, activeCategory, query, managingVisibility]);
-  const shown = popup ? filtered.slice(0, 7) : filtered;
+  const shown = filtered;
+  const popupItems = useMemo(
+    () => getLauncherCommands(commands, activeCategory, query, categories),
+    [commands, activeCategory, query, categories],
+  );
+  useEffect(() => {
+    if (!popup) return;
+    if (!popupItems.some((item) => item.id === selectedId)) {
+      setSelectedId(popupItems[0]?.id ?? null);
+      setDetailsOpen(false);
+    }
+  }, [popup, popupItems, selectedId]);
+  useEffect(() => {
+    if (!popup || !selectedId) return;
+    const row = Array.from(
+      popupListRef.current?.querySelectorAll<HTMLElement>(
+        "[data-command-id]",
+      ) ?? [],
+    ).find((item) => item.dataset.commandId === selectedId);
+    row?.scrollIntoView({ block: "nearest" });
+  }, [popup, selectedId, popupItems]);
   useEffect(() => {
     if (selectedId && !commands.some((c) => c.id === selectedId))
       setSelectedId(null);
@@ -265,6 +320,7 @@ export default function App() {
       if (
         !editor &&
         !settingsOpen &&
+        !categoryPickerOpen &&
         popup &&
         event.altKey &&
         /^[1-7]$/.test(event.key) &&
@@ -276,13 +332,20 @@ export default function App() {
       if (event.key === "Escape") {
         if (editor) setEditor(null);
         else if (settingsOpen) setSettingsOpen(false);
+        else if (categoryPickerOpen) setCategoryPickerOpen(false);
+        else if (contextMenu) setContextMenu(null);
         else if (popup) void hidePopup();
         else setDetailsOpen(false);
       }
-      if (editor || settingsOpen) return;
+      if (editor || settingsOpen || categoryPickerOpen) return;
       if (
         event.key.toLowerCase() === "i" &&
-        document.activeElement !== searchRef.current
+        (event.altKey ||
+          !(
+            event.target instanceof HTMLElement &&
+            (event.target.isContentEditable ||
+              ["INPUT", "TEXTAREA", "SELECT"].includes(event.target.tagName))
+          ))
       ) {
         if (selectedId) {
           event.preventDefault();
@@ -302,11 +365,14 @@ export default function App() {
             ? Math.min(index + 1, items.length - 1)
             : Math.max(index - 1, 0);
         setSelectedId(items[next].id);
-        setDetailsOpen(true);
+        if (!popup) setDetailsOpen(true);
       }
       if (
         event.key === "Enter" &&
+        (document.activeElement === searchRef.current ||
+          document.activeElement === document.body) &&
         selected &&
+        (!popup || popupItems.some((item) => item.id === selected.id)) &&
         !event.shiftKey &&
         !event.ctrlKey
       ) {
@@ -468,26 +534,14 @@ export default function App() {
     }
   }
   const categoryFor = (id: string) => categories.find((c) => c.id === id);
-  const choose = (id: string) => {
+  const choose = (id: string, openDetails = !popup) => {
     setSelectedId(id);
-    setDetailsOpen(true);
+    setDetailsOpen(openDetails);
     setTab("details");
   };
   const recent = [...enabledCommands]
     .filter((c) => c.lastUsedAt)
     .sort((a, b) => (b.lastUsedAt ?? "").localeCompare(a.lastUsedAt ?? ""));
-  const popupItems =
-    activeCategory === "all" && !query
-      ? [
-          ...recent,
-          ...enabledCommands.filter(
-            (c) => c.isFavorite && !recent.some((r) => r.id === c.id),
-          ),
-          ...enabledCommands.filter(
-            (c) => !recent.some((r) => r.id === c.id) && !c.isFavorite,
-          ),
-        ].slice(0, 7)
-      : shown;
   const contextCommand = contextMenu
     ? commands.find((c) => c.id === contextMenu.id)
     : null;
@@ -553,10 +607,24 @@ export default function App() {
             <button
               className="icon-button"
               title="Settings"
-              onClick={() => setSettingsOpen(true)}
+              aria-label="Settings"
+              onClick={() => {
+                if (popup && native) void showSettings().catch(report);
+                else setSettingsOpen(true);
+              }}
             >
               <Settings2 />
             </button>
+            {popup && (
+              <button
+                className="icon-button"
+                title="Close launcher"
+                aria-label="Close launcher"
+                onClick={() => void hidePopup().catch(report)}
+              >
+                <X />
+              </button>
+            )}
           </div>
         </header>
         {popup ? (
@@ -567,20 +635,23 @@ export default function App() {
                 {query
                   ? "Search results"
                   : activeCategory === "all"
-                    ? "Recent & favorites"
+                    ? "All enabled commands"
                     : activeCategory === "favorites"
                       ? "Favorites"
                       : (categoryFor(activeCategory)?.name ?? "Commands")}
               </span>
-              <button className="text-button" onClick={() => void showMain()}>
-                See all
-              </button>
+              <span className="result-count">{popupItems.length} commands</span>
             </div>
-            <div className="popup-list">
+            <div
+              className="popup-list"
+              ref={popupListRef}
+              aria-label="Commands"
+            >
               {popupItems.length ? (
                 popupItems.map((item, index) => (
                   <div
                     key={item.id}
+                    data-command-id={item.id}
                     className={`popup-row ${selectedId === item.id ? "selected" : ""}`}
                     onClick={() => choose(item.id)}
                     onContextMenu={(e) => {
@@ -602,6 +673,18 @@ export default function App() {
                     </div>
                     <button
                       className="row-action"
+                      title="View details"
+                      aria-label={`View details for ${item.title}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        choose(item.id, true);
+                      }}
+                    >
+                      <Info size={16} />
+                    </button>
+                    <button
+                      className="row-action"
+                      aria-label={`Copy ${item.title}`}
                       title="Copy command"
                       onClick={(e) => {
                         e.stopPropagation();
@@ -610,7 +693,7 @@ export default function App() {
                     >
                       <Clipboard size={16} />
                     </button>
-                    <kbd>Alt {index + 1}</kbd>
+                    {index < 7 && <kbd>Alt {index + 1}</kbd>}
                   </div>
                 ))
               ) : (
@@ -677,11 +760,66 @@ export default function App() {
                   <span>{id === "all" ? "All" : categoryFor(id)?.name}</span>
                 </button>
               ))}
-              <button onClick={() => void showMain()}>
+              <button
+                aria-label="Choose category"
+                aria-expanded={categoryPickerOpen}
+                onClick={() => setCategoryPickerOpen(true)}
+              >
                 <ChevronRight size={22} />
                 <span>More</span>
               </button>
             </nav>
+            {categoryPickerOpen && (
+              <div
+                className="category-picker"
+                role="dialog"
+                aria-label="Choose category"
+              >
+                <div className="preview-header">
+                  <strong>Choose category</strong>
+                  <button
+                    className="icon-button tiny"
+                    aria-label="Close category chooser"
+                    onClick={() => setCategoryPickerOpen(false)}
+                  >
+                    <X size={17} />
+                  </button>
+                </div>
+                <div className="category-picker-list">
+                  {[
+                    "all",
+                    "favorites",
+                    "recent",
+                    ...categories
+                      .filter((c) =>
+                        enabledCommands.some(
+                          (item) => item.categoryId === c.id,
+                        ),
+                      )
+                      .map((c) => c.id),
+                  ].map((id) => (
+                    <button
+                      key={id}
+                      className={`sidebar-item ${activeCategory === id ? "active" : ""}`}
+                      onClick={() => {
+                        setActiveCategory(id);
+                        setCategoryPickerOpen(false);
+                        searchRef.current?.focus();
+                      }}
+                    >
+                      <CategoryIcon category={categoryFor(id)} size={19} />
+                      {id === "all"
+                        ? "All commands"
+                        : id === "favorites"
+                          ? "Favorites"
+                          : id === "recent"
+                            ? "Recent"
+                            : categoryFor(id)?.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </section>
         ) : (
           <div className="workspace">
@@ -1164,7 +1302,7 @@ export default function App() {
         >
           <button
             onClick={() => {
-              choose(contextCommand.id);
+              choose(contextCommand.id, true);
               setContextMenu(null);
             }}
           >

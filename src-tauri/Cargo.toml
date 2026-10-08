@@ -1,6 +1,6 @@
 [package]
 name = "nav-toolbox"
-version = "0.1.0"
+version = "0.1.1"
 description = "A quick command launcher for Fedora and Linux"
 edition = "2021"
 
@@ -18,6 +18,11 @@ tauri-plugin-clipboard-manager = "2"
 tauri-plugin-dialog = "2"
 tauri-plugin-fs = "2"
 tauri-plugin-global-shortcut = "2"
+tauri-plugin-single-instance = "2"
 rusqlite = { version = "0.32", features = ["bundled"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+# Match Tauri's tray-icon version so Cargo enables KSNI on the same instance.
+tray-icon = { version = "0.25", default-features = false, features = ["ksni"] }

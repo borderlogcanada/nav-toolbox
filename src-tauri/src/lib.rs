@@ -1,33 +1,20 @@
 mod db;
 
-use tauri::{menu::{Menu, MenuItem}, tray::{MouseButton, MouseButtonState, TrayIconBuilder, TrayIconEvent}, Emitter, Manager};
-
-fn show_window(app: &tauri::AppHandle, label: &str) -> Result<(), String> {
-    let window = app.get_webview_window(label).ok_or_else(|| format!("Window {label} is unavailable"))?;
-    window.show().map_err(|e| e.to_string())?;
-    window.unminimize().map_err(|e| e.to_string())?;
-    window.set_focus().map_err(|e| e.to_string())
-}
+mod tray;
+use tauri::Manager;
 
 #[tauri::command]
-fn show_popup(app: tauri::AppHandle) -> Result<(), String> { show_window(&app, "popup") }
-
+fn show_popup(app: tauri::AppHandle) -> Result<(), String> { tray::show_popup(&app, None) }
 #[tauri::command]
 fn hide_popup(app: tauri::AppHandle) -> Result<(), String> {
     app.get_webview_window("popup").ok_or("Popup unavailable")?.hide().map_err(|e| e.to_string())
 }
-
 #[tauri::command]
-fn toggle_popup(app: tauri::AppHandle) -> Result<(), String> {
-    let window = app.get_webview_window("popup").ok_or("Popup unavailable")?;
-    if window.is_visible().map_err(|e| e.to_string())? { window.hide().map_err(|e| e.to_string()) } else { show_window(&app, "popup") }
-}
-
+fn toggle_popup(app: tauri::AppHandle) -> Result<(), String> { tray::toggle_popup(&app, None, false) }
 #[tauri::command]
-fn show_main(app: tauri::AppHandle) -> Result<(), String> {
-    if let Some(popup) = app.get_webview_window("popup") { let _ = popup.hide(); }
-    show_window(&app, "main")
-}
+fn show_main(app: tauri::AppHandle) -> Result<(), String> { tray::show_main(&app) }
+#[tauri::command]
+fn show_settings(app: tauri::AppHandle) -> Result<(), String> { tray::show_settings(&app) }
 
 #[tauri::command]
 fn load_snapshot(app: tauri::AppHandle) -> Result<db::Snapshot, String> { db::load(&app) }
@@ -67,38 +54,30 @@ fn run_in_terminal(app: tauri::AppHandle, id: String) -> Result<(), String> {
 }
 
 pub fn run() {
+    // Wayland does not permit positioning standalone toplevels. Prefer XWayland
+    // for this app's anchored launcher; fall back to native Wayland when absent.
+    #[cfg(target_os = "linux")]
+    if std::env::var_os("GDK_BACKEND").is_none() && std::env::var_os("WAYLAND_DISPLAY").is_some() && std::env::var_os("DISPLAY").is_some() {
+        std::env::set_var("GDK_BACKEND", "x11,wayland");
+    }
     tauri::Builder::default()
+        .plugin(tauri_plugin_single_instance::init(|app, args, _| {
+            if !args.iter().any(|arg| arg == "--hidden") {
+                if let Err(error) = tray::show_main(app) { eprintln!("Nav Toolbox reopen: {error}"); }
+            }
+        }))
+        .manage(tray::PopupState::default())
         .plugin(tauri_plugin_clipboard_manager::init())
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_global_shortcut::Builder::new().build())
         .plugin(tauri_plugin_autostart::init(tauri_plugin_autostart::MacosLauncher::LaunchAgent, Some(vec!["--hidden"])))
         .setup(|app| {
-            let open_launcher = MenuItem::with_id(app, "launcher", "Open Launcher", true, None::<&str>)?;
-            let open_manager = MenuItem::with_id(app, "manager", "Open Manager", true, None::<&str>)?;
-            let open_settings = MenuItem::with_id(app, "settings", "Settings", true, None::<&str>)?;
-            let quit = MenuItem::with_id(app, "quit", "Quit", true, None::<&str>)?;
-            let menu = Menu::with_items(app, &[&open_launcher, &open_manager, &open_settings, &quit])?;
-            TrayIconBuilder::new()
-                .icon(app.default_window_icon().expect("App icon").clone())
-                .tooltip("Nav Toolbox")
-                .menu(&menu)
-                .show_menu_on_left_click(true)
-                .on_menu_event(|app, event| match event.id.as_ref() {
-                    "launcher" => { let _ = show_window(app, "popup"); },
-                    "manager" => { let _ = show_window(app, "main"); },
-                    "settings" => { let _ = show_window(app, "main"); let _ = app.emit("open-settings", ()); },
-                    "quit" => app.exit(0),
-                    _ => {}
-                })
-                .on_tray_icon_event(|tray, event| {
-                    if let TrayIconEvent::Click { button: MouseButton::Left, button_state: MouseButtonState::Up, .. } = event {
-                        let app = tray.app_handle();
-                        let _ = show_window(app, "popup");
-                    }
-                })
-                .build(app)?;
-            if std::env::args().any(|arg| arg == "--hidden") {
+            let tray_available = match tray::setup(app) {
+                Ok(()) => true,
+                Err(error) => { eprintln!("Nav Toolbox tray unavailable: {error}"); false },
+            };
+            if tray_available && std::env::args().any(|arg| arg == "--hidden") {
                 if let Some(window) = app.get_webview_window("main") { let _ = window.hide(); }
             }
             Ok(())
@@ -108,11 +87,11 @@ pub fn run() {
                 if let tauri::WindowEvent::CloseRequested { api, .. } = event { api.prevent_close(); let _ = window.hide(); }
             }
             if window.label() == "popup" {
-                if let tauri::WindowEvent::Focused(false) = event { let _ = window.hide(); }
+                if let tauri::WindowEvent::Focused(false) = event { tray::blurred(window.app_handle()); }
                 if let tauri::WindowEvent::CloseRequested { api, .. } = event { api.prevent_close(); let _ = window.hide(); }
             }
         })
-        .invoke_handler(tauri::generate_handler![show_popup, hide_popup, toggle_popup, show_main, load_snapshot, save_command, set_category_enabled, delete_command, save_category, save_settings, mark_used, import_snapshot, run_in_terminal])
+        .invoke_handler(tauri::generate_handler![show_popup, hide_popup, toggle_popup, show_main, show_settings, load_snapshot, save_command, set_category_enabled, delete_command, save_category, save_settings, mark_used, import_snapshot, run_in_terminal])
         .run(tauri::generate_context!())
         .expect("error while running Nav Toolbox");
 }
